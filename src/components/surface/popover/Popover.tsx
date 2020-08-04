@@ -1,32 +1,14 @@
 import React, { CSSProperties } from "react";
 
-enum Visibility {
-  VISIBLE = "visible",
-  HIDDEN = "hidden",
-}
-
-interface PopoverStyle {
-  position: String;
-  bottom: String;
-  minWidth: String;
-}
-
-interface PopoverWrapperStyle {
-  top: String;
-  bottom: String;
-  left: String;
-  visibility: Visibility;
-}
-
 interface Props {
-  show: Boolean;
+  show: boolean;
   anchorElement: HTMLElement | null;
   onDismiss: Function;
 }
 
 interface State {
-  iSListeningToClicks: Boolean;
-  isListeningToScroll: Boolean;
+  iSListeningToClicks: boolean;
+  isListeningToScroll: boolean;
   popoverStyle: CSSProperties;
   popoverWrapperStyle: CSSProperties;
 }

@@ -1,8 +1,8 @@
 import React from "react";
 
 interface Props {
-  show: Boolean;
-  title: String;
+  show: boolean;
+  title: string;
   onDismiss: Function;
 }
 
