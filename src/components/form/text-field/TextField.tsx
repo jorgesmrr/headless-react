@@ -14,7 +14,7 @@ class TextField extends Field<TextFieldProps> {
 
   onInput(event: React.FormEvent<HTMLInputElement>) {
     if (this.props.error && this.props.autoCleanErrors) {
-      // todo this.$emit("update:error", null);
+      // todo
     }
 
     this.props.onInput?.(event);
