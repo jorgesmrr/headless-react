@@ -4,20 +4,21 @@ import { Field } from "../field/Field";
 
 interface TextFieldProps extends FieldWrapperProps {
   type?: string;
-  onInput?: Function;
+  onChange?: Function;
 }
 
 class TextField extends Field<TextFieldProps> {
   static defaultProps = {
+    ...Field.defaultProps,
     type: "text",
   };
 
-  onInput(event: React.FormEvent<HTMLInputElement>) {
+  onChange(event: React.FormEvent<HTMLInputElement>) {
     if (this.props.error && this.props.autoCleanErrors) {
       // todo
     }
 
-    this.props.onInput?.(event);
+    this.props.onChange?.(event);
   }
 
   render() {
@@ -37,7 +38,7 @@ class TextField extends Field<TextFieldProps> {
           value={this.props.value}
           className={this.getInputClassName()}
           disabled={this.props.disabled}
-          onInput={(ev) => this.onInput(ev)}
+          onChange={(ev) => this.onChange(ev)}
         />
       </FieldWrapper>
     );

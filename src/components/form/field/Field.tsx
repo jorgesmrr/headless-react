@@ -15,7 +15,7 @@ export interface FieldProps {
 }
 
 export class Field<T> extends React.Component<FieldProps & T> {
-  defaultProps = {
+  static defaultProps = {
     autoCleanErrors: true,
   };
 

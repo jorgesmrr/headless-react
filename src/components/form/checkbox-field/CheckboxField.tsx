@@ -12,14 +12,14 @@ interface CheckboxProps {
 class CheckboxField extends React.Component<CheckboxProps> {
   render() {
     return (
-      <label>
+      <label className="block">
         <input
           type="checkbox"
           id={this.props.id}
           name={this.props.name}
           checked={this.props.checked}
           disabled={this.props.disabled}
-          onChange={() => this.props.onChange?.()}
+          onChange={(ev) => this.props.onChange?.(ev)}
         />
         {this.props.label}
       </label>

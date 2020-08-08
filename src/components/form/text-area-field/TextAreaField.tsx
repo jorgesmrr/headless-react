@@ -4,20 +4,21 @@ import FieldWrapper, { FieldWrapperProps } from "../field-wrapper/FieldWrapper";
 
 interface TextFieldProps extends FieldWrapperProps {
   type?: string;
-  onInput?: Function;
+  onChange?: Function;
 }
 
 class TextAreaField extends Field<TextFieldProps> {
   static defaultProps = {
+    ...Field.defaultProps,
     type: "text",
   };
 
-  onInput(event: React.FormEvent<HTMLTextAreaElement>) {
+  onChange(event: React.FormEvent<HTMLTextAreaElement>) {
     if (this.props.error && this.props.autoCleanErrors) {
       // todo
     }
 
-    this.props.onInput?.(event);
+    this.props.onChange?.(event);
   }
 
   render() {
@@ -35,7 +36,7 @@ class TextAreaField extends Field<TextFieldProps> {
           value={this.props.value}
           className={this.getInputClassName()}
           disabled={this.props.disabled}
-          onInput={(ev) => this.onInput(ev)}
+          onChange={(ev) => this.onChange(ev)}
         />
       </FieldWrapper>
     );

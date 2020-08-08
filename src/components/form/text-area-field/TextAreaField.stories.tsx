@@ -46,3 +46,24 @@ export const InvalidWithMessage = () => {
     />
   );
 };
+
+class BindindTest extends React.Component {
+  state = {
+    text: "Text",
+  };
+
+  render() {
+    return (
+      <div>
+        <TextAreaField
+          label="Text"
+          value={this.state.text}
+          onChange={(ev: any) => this.setState({ text: ev.target.value })}
+        />
+        <p>Typed text: {this.state.text}</p>
+      </div>
+    );
+  }
+}
+
+export const Binding = () => <BindindTest />;

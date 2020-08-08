@@ -4,22 +4,24 @@ interface RadioProps {
   id?: string;
   name?: string;
   label?: string;
+  value?: string | number;
   checked?: boolean;
   disabled?: boolean;
-  onChange?: Function;
+  onChange?: (ev: React.ChangeEvent<HTMLInputElement>) => any;
 }
 
-class CheckboxField extends React.Component<RadioProps> {
+class RadioField extends React.Component<RadioProps> {
   render() {
     return (
-      <label>
+      <label className="block">
         <input
           type="radio"
           id={this.props.id}
           name={this.props.name}
           checked={this.props.checked}
           disabled={this.props.disabled}
-          onChange={() => this.props.onChange?.()}
+          value={this.props.value}
+          onChange={(ev) => this.props.onChange?.(ev)}
         />
         {this.props.label}
       </label>
@@ -27,4 +29,4 @@ class CheckboxField extends React.Component<RadioProps> {
   }
 }
 
-export default CheckboxField;
+export default RadioField;
