@@ -1,6 +1,7 @@
 import React from "react";
 import RadioGroup from "./RadioGroup";
 import { withKnobs } from "@storybook/addon-knobs";
+import RadioField from "../radio-field/RadioField";
 
 export default {
   title: "Form/RadioGroup",
@@ -8,42 +9,24 @@ export default {
   decorators: [withKnobs],
 };
 
-interface BindingOption {
-  label: string;
-  value: number;
-}
-
-interface BindingTest {
-  selectedOption?: BindingOption;
-}
-
-class BindindTest extends React.Component<any, BindingTest> {
-  constructor(props: any) {
-    super(props);
-    this.state = {
-      selectedOption: undefined,
-    };
-  }
-
-  options = [
-    { label: "A", value: 1 },
-    { label: "B", value: 2 },
-    { label: "C", value: 3 },
-  ];
+class BindindTest extends React.Component {
+  state = {
+    selectedOption: undefined,
+  };
 
   render() {
     return (
       <div>
         <RadioGroup
-          options={this.options}
+          name="binding"
           value={this.state.selectedOption}
-          labelKey="label"
-          valueKey="value"
-          onChange={(option: BindingOption) =>
-            this.setState({ selectedOption: option })
-          }
-        />
-        <p>Selected option: {this.state.selectedOption?.label}</p>
+          onChange={(option) => this.setState({ selectedOption: option })}
+        >
+          <RadioField label="A" value={1} />
+          <RadioField label="B" value={2} />
+          <RadioField label="C" value={3} />
+        </RadioGroup>
+        <p>Selected option: {this.state.selectedOption}</p>
       </div>
     );
   }

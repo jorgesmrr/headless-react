@@ -8,4 +8,6 @@ export default {
   decorators: [withKnobs],
 };
 
-export const Default = () => <RadioField label={text("label", "My field")} />;
+export const Default = () => (
+  <RadioField label={text("label", "My field")} value="" />
+);

@@ -1,30 +1,31 @@
 import React from "react";
+import { RadioContext } from "../radio-group/RadioGroup";
 
 interface RadioProps {
   id?: string;
-  name?: string;
   label?: string;
-  value?: string | number;
-  checked?: boolean;
+  value: any;
   disabled?: boolean;
-  onChange?: (ev: React.ChangeEvent<HTMLInputElement>) => any;
 }
 
 class RadioField extends React.Component<RadioProps> {
   render() {
     return (
-      <label className="block">
-        <input
-          type="radio"
-          id={this.props.id}
-          name={this.props.name}
-          checked={this.props.checked}
-          disabled={this.props.disabled}
-          value={this.props.value}
-          onChange={(ev) => this.props.onChange?.(ev)}
-        />
-        {this.props.label}
-      </label>
+      <RadioContext.Consumer>
+        {({ selectedValue, name, onChange }) => (
+          <label className="block">
+            <input
+              type="radio"
+              id={this.props.id}
+              name={name}
+              checked={selectedValue === this.props.value}
+              disabled={this.props.disabled}
+              onChange={(ev) => onChange?.(ev, this.props.value)}
+            />
+            {this.props.label}
+          </label>
+        )}
+      </RadioContext.Consumer>
     );
   }
 }

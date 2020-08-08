@@ -1,54 +1,41 @@
 import React from "react";
-import RadioField from "../radio-field/RadioField";
+
+export const RadioContext = React.createContext<RadioContextProps>();
+
+interface RadioContextProps {
+  name: string;
+  selectedValue?: any;
+  onChange?: (
+    ev: React.ChangeEvent<HTMLInputElement>,
+    value: string | number | Object
+  ) => any;
+}
 
 interface RadioGroupProps {
-  value?: string | number | Object;
-  options: Array<string | number | Object>;
-  valueKey?: string;
-  labelKey?: string;
-  onChange?: Function;
+  name: string;
+  value?: any;
+  onChange?: (value: any) => any;
 }
 
 class RadioGroup extends React.Component<RadioGroupProps> {
-  getItemFromValue(value: string | number) {
-    return this.props.options.find((o) => this.getItemValue(o) === value);
-  }
-
-  getItemValue(item: any): string | number {
-    return this.props.valueKey ? item[this.props.valueKey] : item;
-  }
-
-  getItemLabel(item: any): string {
-    return this.props.labelKey ? item[this.props.labelKey] : item;
-  }
-
-  handleOptionChange(
-    ev: React.ChangeEvent<HTMLInputElement>,
-    value: string | number
-  ) {
+  handleOptionChange(ev: React.ChangeEvent<HTMLInputElement>, value: any) {
     if (ev.target.checked) {
-      this.props.onChange?.(this.getItemFromValue(value));
+      this.props.onChange?.(value);
     }
   }
 
   render() {
     return (
       <div>
-        {this.props.options.map((o) => {
-          const optionValue = this.getItemValue(o);
-          return (
-            <RadioField
-              key={optionValue}
-              label={this.getItemLabel(o)}
-              value={optionValue}
-              checked={
-                !!this.props.value &&
-                this.getItemValue(this.props.value) === optionValue
-              }
-              onChange={(ev) => this.handleOptionChange(ev, optionValue)}
-            />
-          );
-        })}
+        <RadioContext.Provider
+          value={{
+            selectedValue: this.props.value,
+            name: this.props.name,
+            onChange: (e, v) => this.handleOptionChange(e, v),
+          }}
+        >
+          {this.props.children}
+        </RadioContext.Provider>
       </div>
     );
   }
