@@ -1,6 +1,8 @@
 import React from "react";
 
-export const RadioContext = React.createContext<RadioContextProps>();
+export const RadioContext = React.createContext<RadioContextProps>({
+  name: "",
+});
 
 interface RadioContextProps {
   name: string;
