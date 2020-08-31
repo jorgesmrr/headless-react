@@ -1,5 +1,7 @@
 import React from "react";
-import DrawerItem, { DrawerItemProps } from "./DrawerItem";
+import DrawerItem, {
+  DrawerItemProps,
+} from "../../components/navigation/drawer-item/DrawerItem";
 import { Story } from "@storybook/react/types-6-0";
 
 export default {

@@ -1,5 +1,5 @@
 import React from "react";
-import Modal from "./Modal";
+import Modal from "../../components/surface/modal/Modal";
 
 export default {
   title: "Surface/Modal",

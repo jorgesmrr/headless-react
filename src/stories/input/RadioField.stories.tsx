@@ -1,11 +1,10 @@
 import React from "react";
-import RadioGroup from "./RadioGroup";
-import { Story } from "@storybook/react/types-6-0";
-import RadioField from "../radio-field/RadioField";
+import RadioField from "../../components/input/radio-field/RadioField";
+import RadioGroup from "../../components/input/radio-group/RadioGroup";
 
 export default {
-  title: "Form/RadioGroup",
-  component: RadioGroup,
+  title: "Form/RadioField",
+  component: RadioField,
 };
 
 class BindindTest extends React.Component {

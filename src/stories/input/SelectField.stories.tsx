@@ -1,6 +1,8 @@
 import React from "react";
-import SelectField, { SelectFieldProps } from "./SelectField";
 import { Story } from "@storybook/react/types-6-0";
+import SelectField, {
+  SelectFieldProps,
+} from "../../components/input/select-field/SelectField";
 
 export default {
   title: "Form/SelectField",

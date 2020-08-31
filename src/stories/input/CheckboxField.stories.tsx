@@ -1,6 +1,8 @@
 import React from "react";
 import { Story } from "@storybook/react/types-6-0";
-import CheckboxField, { CheckboxProps } from "./CheckboxField";
+import CheckboxField, {
+  CheckboxProps,
+} from "../../components/input/checkbox-field/CheckboxField";
 
 export default {
   title: "Form/CheckboxField",

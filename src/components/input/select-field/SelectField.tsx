@@ -12,7 +12,7 @@ interface SelectProps {
 
 export type SelectFieldProps = SelectProps & FieldProps & FieldWrapperProps;
 
-class SelectedField extends Field<SelectFieldProps> {
+class SelectField extends Field<SelectFieldProps> {
   getItemFromValue(value: string | number) {
     return this.props.options.find(
       (o) => this.getItemValue(o).toString() === value
@@ -70,4 +70,4 @@ class SelectedField extends Field<SelectFieldProps> {
   }
 }
 
-export default SelectedField;
+export default SelectField;

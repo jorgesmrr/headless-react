@@ -1,15 +1,15 @@
 import React from "react";
-import TextAreaField, { TextAreaFieldProps } from "./TextAreaField";
+import TextField, {
+  TextFieldProps,
+} from "../../components/input/text-field/TextField";
 import { Story } from "@storybook/react/types-6-0";
 
 export default {
-  title: "Form/TextAreaField",
-  component: TextAreaField,
+  title: "Form/TextField",
+  component: TextField,
 };
 
-const Template: Story<TextAreaFieldProps> = (args) => (
-  <TextAreaField {...args} />
-);
+const Template: Story<TextFieldProps> = (args) => <TextField {...args} />;
 
 export const Default = Template.bind({});
 Default.args = { label: "My label", placeholder: "Select an option" };
@@ -31,7 +31,7 @@ class BindindTest extends React.Component {
   render() {
     return (
       <div>
-        <TextAreaField
+        <TextField
           label="Text"
           value={this.state.text}
           onChange={(ev: any) => this.setState({ text: ev.target.value })}

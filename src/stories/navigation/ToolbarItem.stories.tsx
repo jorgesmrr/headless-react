@@ -1,6 +1,8 @@
 import React from "react";
-import ToolbarItem, { ToolbarItemProps } from "./ToolbarItem";
 import { Story } from "@storybook/react/types-6-0";
+import ToolbarItem, {
+  ToolbarItemProps,
+} from "../../components/navigation/toolbar-item/ToolbarItem";
 
 export default {
   title: "Navigation/ToolbarItem",

@@ -1,5 +1,5 @@
 import React from "react";
-import Popover from "./Popover";
+import Popover from "../../components/surface/popover/Popover";
 
 export default {
   title: "Surface/Popover",
