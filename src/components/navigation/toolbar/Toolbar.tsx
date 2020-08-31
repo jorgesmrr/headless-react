@@ -1,10 +1,10 @@
 import React, { FunctionComponent } from "react";
 
-interface Props {
+export interface ToolbarProps {
   loading?: boolean;
 }
 
-const Toolbar: FunctionComponent<Props> = ({ loading, children }) => {
+const Toolbar: FunctionComponent<ToolbarProps> = ({ loading, children }) => {
   const content = loading ? <div>Please wait</div> : children;
 
   return (

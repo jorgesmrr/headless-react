@@ -1,18 +1,18 @@
 import React from "react";
-import Toolbar from "./Toolbar";
-import { withKnobs, boolean } from "@storybook/addon-knobs";
+import Toolbar, { ToolbarProps } from "./Toolbar";
+import { Story } from "@storybook/react/types-6-0";
 import ToolbarItem from "../toolbar-item/ToolbarItem";
 
 export default {
   title: "Navigation/Toolbar",
   component: Toolbar,
-  decorators: [withKnobs],
 };
 
-export const Default = () => (
-  <Toolbar loading={boolean("loading", false)}>
+export const Default: Story<ToolbarProps> = (args) => (
+  <Toolbar {...args}>
     <ToolbarItem title="Example" />
     <ToolbarItem title="Example" />
     <ToolbarItem title="Example" />
   </Toolbar>
 );
+Default.args = { loading: false };

@@ -1,12 +1,11 @@
 import React from "react";
 import RadioGroup from "./RadioGroup";
-import { withKnobs } from "@storybook/addon-knobs";
+import { Story } from "@storybook/react/types-6-0";
 import RadioField from "../radio-field/RadioField";
 
 export default {
   title: "Form/RadioGroup",
   component: RadioGroup,
-  decorators: [withKnobs],
 };
 
 class BindindTest extends React.Component {

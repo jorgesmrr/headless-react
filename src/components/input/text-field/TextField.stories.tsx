@@ -1,51 +1,25 @@
 import React from "react";
-import TextField from "./TextField";
-import { withKnobs, text, boolean } from "@storybook/addon-knobs";
-import { getDefaultFieldData } from "../../../utils/stories/form";
+import TextField, { TextFieldProps } from "./TextField";
+import { Story } from "@storybook/react/types-6-0";
 
 export default {
   title: "Form/TextField",
   component: TextField,
-  decorators: [withKnobs],
 };
 
-export const Default = () => {
-  const { label, placeholder } = getDefaultFieldData();
-  return <TextField label={label} placeholder={placeholder} />;
-};
+const Template: Story<TextFieldProps> = (args) => <TextField {...args} />;
 
-export const WithHint = () => {
-  const { label, placeholder } = getDefaultFieldData();
-  return (
-    <TextField
-      label={label}
-      placeholder={placeholder}
-      hint={text("hint", "Be creative!")}
-    />
-  );
-};
+export const Default = Template.bind({});
+Default.args = { label: "My label", placeholder: "Select an option" };
 
-export const Invalid = () => {
-  const { label, placeholder } = getDefaultFieldData();
-  return (
-    <TextField
-      label={label}
-      placeholder={placeholder}
-      error={boolean("error", true)}
-    />
-  );
-};
+export const WithHint = Template.bind({});
+WithHint.args = { ...Default.args, hint: "Be creative!" };
 
-export const InvalidWithMessage = () => {
-  const { label, placeholder } = getDefaultFieldData();
-  return (
-    <TextField
-      label={label}
-      placeholder={placeholder}
-      error={text("error", "Required field")}
-    />
-  );
-};
+export const Invalid = Template.bind({});
+Invalid.args = { ...Default.args, error: true };
+
+export const InvalidWithMessage = Template.bind({});
+InvalidWithMessage.args = { ...Default.args, error: "Required field" };
 
 class BindindTest extends React.Component {
   state = {

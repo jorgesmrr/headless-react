@@ -1,12 +1,10 @@
 import React from "react";
 import Drawer from "./Drawer";
 import DrawerItem from "../drawer-item/DrawerItem";
-import { withKnobs } from "@storybook/addon-knobs";
 
 export default {
   title: "Navigation/Drawer",
   component: Drawer,
-  decorators: [withKnobs],
 };
 
 class Toggler extends React.Component {

@@ -1,14 +1,16 @@
 import React from "react";
-import { Field } from "../field/Field";
+import { Field, FieldProps } from "../field/Field";
 import FieldWrapper, { FieldWrapperProps } from "../field-wrapper/FieldWrapper";
 
-interface SelectFieldProps extends FieldWrapperProps {
+interface SelectProps {
   value?: string | number;
   options: Array<string | number | Object>;
   valueKey?: string;
   labelKey?: string;
   onChange?: Function;
 }
+
+export type SelectFieldProps = SelectProps & FieldProps & FieldWrapperProps;
 
 class SelectedField extends Field<SelectFieldProps> {
   getItemFromValue(value: string | number) {

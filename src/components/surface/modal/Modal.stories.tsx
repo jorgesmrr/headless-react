@@ -1,11 +1,9 @@
 import React from "react";
 import Modal from "./Modal";
-import { withKnobs, text } from "@storybook/addon-knobs";
 
 export default {
   title: "Surface/Modal",
   component: Modal,
-  decorators: [withKnobs],
 };
 
 class Toggler extends React.Component {
@@ -20,7 +18,7 @@ class Toggler extends React.Component {
       <div className="relative">
         <Modal
           show={this.state.show}
-          title={text("title", "Title")}
+          title="Title"
           onDismiss={() => this.toggle}
         />
 

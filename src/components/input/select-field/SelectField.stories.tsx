@@ -1,58 +1,27 @@
 import React from "react";
-import SelectField from "./SelectField";
-import { withKnobs, text, boolean } from "@storybook/addon-knobs";
-import { getDefaultFieldData } from "../../../utils/stories/form";
+import SelectField, { SelectFieldProps } from "./SelectField";
+import { Story } from "@storybook/react/types-6-0";
 
 export default {
   title: "Form/SelectField",
   component: SelectField,
-  decorators: [withKnobs],
 };
 
 const options = ["One", "Two", "Three"];
 
-export const Default = () => {
-  const { label, placeholder } = getDefaultFieldData();
-  return (
-    <SelectField label={label} placeholder={placeholder} options={options} />
-  );
-};
+const Template: Story<SelectFieldProps> = (args) => <SelectField {...args} />;
 
-export const WithHint = () => {
-  const { label, placeholder } = getDefaultFieldData();
-  return (
-    <SelectField
-      label={label}
-      placeholder={placeholder}
-      hint={text("hint", "Be creative!")}
-      options={options}
-    />
-  );
-};
+export const Default = Template.bind({});
+Default.args = { label: "My label", placeholder: "Select an option", options };
 
-export const Invalid = () => {
-  const { label, placeholder } = getDefaultFieldData();
-  return (
-    <SelectField
-      label={label}
-      placeholder={placeholder}
-      error={boolean("error", true)}
-      options={options}
-    />
-  );
-};
+export const WithHint = Template.bind({});
+WithHint.args = { ...Default.args, hint: "Be creative!" };
 
-export const InvalidWithMessage = () => {
-  const { label, placeholder } = getDefaultFieldData();
-  return (
-    <SelectField
-      label={label}
-      placeholder={placeholder}
-      error={text("error", "Required field")}
-      options={options}
-    />
-  );
-};
+export const Invalid = Template.bind({});
+Invalid.args = { ...Default.args, error: true };
+
+export const InvalidWithMessage = Template.bind({});
+InvalidWithMessage.args = { ...Default.args, error: "Required field" };
 
 class PrimitiveBindindTest extends React.Component {
   state = {

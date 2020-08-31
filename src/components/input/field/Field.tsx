@@ -14,7 +14,7 @@ export interface FieldProps {
   error?: string | boolean;
 }
 
-export class Field<T> extends React.Component<FieldProps & T> {
+export class Field<T extends FieldProps> extends React.Component<T> {
   static defaultProps = {
     autoCleanErrors: true,
   };

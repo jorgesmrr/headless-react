@@ -1,11 +1,11 @@
 import React, { FunctionComponent } from "react";
 
-interface Props {
+export interface DrawerItemProps {
   title: string;
   link?: string;
 }
 
-const DrawerItem: FunctionComponent<Props> = ({ title, link }) => (
+const DrawerItem: FunctionComponent<DrawerItemProps> = ({ title, link }) => (
   <li className="drawer-item">
     <a className="block px-4 py-2" href={link}>
       {title}

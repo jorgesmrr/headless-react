@@ -1,15 +1,15 @@
 import React from "react";
-import DrawerItem from "./DrawerItem";
-import { withKnobs, text } from "@storybook/addon-knobs";
+import DrawerItem, { DrawerItemProps } from "./DrawerItem";
+import { Story } from "@storybook/react/types-6-0";
 
 export default {
   title: "Navigation/DrawerItem",
   component: DrawerItem,
-  decorators: [withKnobs],
 };
 
-export const Default = () => (
+export const Default: Story<DrawerItemProps> = (args) => (
   <ul>
-    <DrawerItem title={text("title", "Item")} />
+    <DrawerItem {...args} />
   </ul>
 );
+Default.args = { title: "Item" };

@@ -1,7 +1,7 @@
 import React from "react";
 import { RadioContext } from "../radio-group/RadioGroup";
 
-interface RadioProps {
+export interface RadioProps {
   id?: string;
   label?: string;
   value: any;

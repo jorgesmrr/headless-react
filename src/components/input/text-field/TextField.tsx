@@ -1,11 +1,13 @@
 import React from "react";
 import FieldWrapper, { FieldWrapperProps } from "../field-wrapper/FieldWrapper";
-import { Field } from "../field/Field";
+import { Field, FieldProps } from "../field/Field";
 
-interface TextFieldProps extends FieldWrapperProps {
+interface TextProps extends FieldWrapperProps {
   type?: string;
   onChange?: Function;
 }
+
+export type TextFieldProps = TextProps & FieldProps & FieldWrapperProps;
 
 class TextField extends Field<TextFieldProps> {
   static defaultProps = {

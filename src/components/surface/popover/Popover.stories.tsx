@@ -1,11 +1,9 @@
 import React from "react";
 import Popover from "./Popover";
-import { withKnobs } from "@storybook/addon-knobs";
 
 export default {
   title: "Surface/Popover",
   componet: Popover,
-  decorators: [withKnobs],
 };
 
 class Toggler extends React.Component {

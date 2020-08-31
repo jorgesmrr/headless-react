@@ -1,11 +1,11 @@
 import React, { FunctionComponent } from "react";
 
-interface Props {
+export interface ToolbarItemProps {
   title: string;
   link?: string;
 }
 
-const ToolbarItem: FunctionComponent<Props> = ({ title, link }) =>
+const ToolbarItem: FunctionComponent<ToolbarItemProps> = ({ title, link }) =>
   link ? (
     <a
       href={link}
