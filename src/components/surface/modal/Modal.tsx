@@ -1,4 +1,5 @@
 import React from "react";
+import ReactDOM from "react-dom";
 
 interface Props {
   show: boolean;
@@ -14,7 +15,14 @@ class Modal extends React.Component<Props> {
   }
 
   render() {
-    return (
+    let element = document.getElementById("modal-root");
+
+    if (!element) {
+      element = document.createElement("div");
+      document.body.appendChild(element);
+    }
+
+    return ReactDOM.createPortal(
       <div className={`modal ${this.props.show ? "open" : ""}`}>
         <div className="modal-content">
           <div className="card">
@@ -29,7 +37,8 @@ class Modal extends React.Component<Props> {
             {this.props.children}
           </div>
         </div>
-      </div>
+      </div>,
+      element
     );
   }
 }

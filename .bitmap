@@ -157,7 +157,7 @@
         "origin": "AUTHORED",
         "exported": true
     },
-    "jorgemoreira.react/surface/modal@0.0.1": {
+    "jorgemoreira.react/surface/modal@0.0.2": {
         "files": [
             {
                 "relativePath": "src/components/surface/modal/Modal.tsx",
