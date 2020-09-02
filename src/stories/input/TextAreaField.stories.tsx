@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { Story } from "@storybook/react/types-6-0";
 import TextAreaField, {
   TextAreaFieldProps,
@@ -25,23 +25,13 @@ Invalid.args = { ...Default.args, error: true };
 export const InvalidWithMessage = Template.bind({});
 InvalidWithMessage.args = { ...Default.args, error: "Required field" };
 
-class BindindTest extends React.Component {
-  state = {
-    text: "Text",
-  };
+export const Binding: React.FC = () => {
+  const [text, setText] = useState("");
 
-  render() {
-    return (
-      <div>
-        <TextAreaField
-          label="Text"
-          value={this.state.text}
-          onChange={(ev: any) => this.setState({ text: ev.target.value })}
-        />
-        <p>Typed text: {this.state.text}</p>
-      </div>
-    );
-  }
-}
-
-export const Binding = () => <BindindTest />;
+  return (
+    <div>
+      <TextAreaField label="Text" value={text} onChange={setText} />
+      <p>Typed text: {text}</p>
+    </div>
+  );
+};

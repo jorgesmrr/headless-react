@@ -29,7 +29,7 @@ class SelectField extends Field<SelectFieldProps> {
 
   handleChange(event: React.ChangeEvent<HTMLSelectElement>) {
     if (this.props.error && this.props.autoCleanErrors) {
-      // todo
+      // todo clear error
     }
 
     this.props.onChange?.(this.getItemFromValue(event.target.value));

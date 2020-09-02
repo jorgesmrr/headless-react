@@ -20,7 +20,7 @@ class TextAreaField extends Field<TextAreaFieldProps> {
       // todo
     }
 
-    this.props.onChange?.(event);
+    this.props.onChange?.((event.target as HTMLTextAreaElement).value);
   }
 
   render() {

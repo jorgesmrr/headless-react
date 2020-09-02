@@ -17,10 +17,10 @@ class TextField extends Field<TextFieldProps> {
 
   onChange(event: React.FormEvent<HTMLInputElement>) {
     if (this.props.error && this.props.autoCleanErrors) {
-      // todo
+      // todo clear error
     }
 
-    this.props.onChange?.(event);
+    this.props.onChange?.((event.target as HTMLInputElement).value);
   }
 
   render() {
@@ -32,7 +32,6 @@ class TextField extends Field<TextFieldProps> {
         error={this.props.error}
       >
         <input
-          ref="inputFieldRef"
           id={this.props.id}
           name={this.props.name}
           type={this.props.type}
