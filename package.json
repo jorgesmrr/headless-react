@@ -72,6 +72,6 @@
     "packageManager": "npm"
   },
   "prettier": {
-    "tabWidth": 2
+    "tabWidth": 4
   }
 }

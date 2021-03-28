@@ -53,7 +53,7 @@
         "origin": "AUTHORED",
         "exported": true
     },
-    "jorgemoreira.react/input/select-field@0.0.2": {
+    "jorgemoreira.react/input/select-field@0.0.3": {
         "files": [
             {
                 "relativePath": "src/components/input/select-field/SelectField.tsx",
@@ -66,7 +66,7 @@
         "origin": "AUTHORED",
         "exported": true
     },
-    "jorgemoreira.react/input/text-area-field@0.0.2": {
+    "jorgemoreira.react/input/text-area-field@0.0.3": {
         "files": [
             {
                 "relativePath": "src/components/input/text-area-field/TextAreaField.tsx",
@@ -79,7 +79,7 @@
         "origin": "AUTHORED",
         "exported": true
     },
-    "jorgemoreira.react/input/text-field@0.0.2": {
+    "jorgemoreira.react/input/text-field@0.0.3": {
         "files": [
             {
                 "relativePath": "src/components/input/text-field/TextField.tsx",
@@ -110,7 +110,7 @@
         "origin": "AUTHORED",
         "exported": true
     },
-    "jorgemoreira.react/surface/modal@0.0.4": {
+    "jorgemoreira.react/surface/modal@0.0.5": {
         "files": [
             {
                 "relativePath": "src/components/surface/modal/Modal.tsx",
@@ -128,7 +128,7 @@
         "origin": "AUTHORED",
         "exported": true
     },
-    "jorgemoreira.react/surface/popover@0.0.3": {
+    "jorgemoreira.react/surface/popover@0.0.4": {
         "files": [
             {
                 "relativePath": "src/components/surface/popover/Popover.tsx",

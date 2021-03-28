@@ -3,6 +3,7 @@ import { Story } from "@storybook/react/types-6-0";
 import SelectField, {
   SelectFieldProps,
 } from "../../components/input/select-field/SelectField";
+import Field from "../../components/input/field/Field";
 
 export default {
   title: "Form/SelectField",
@@ -11,7 +12,11 @@ export default {
 
 const options = ["One", "Two", "Three"];
 
-const Template: Story<SelectFieldProps> = (args) => <SelectField {...args} />;
+const Template: Story = (args) => (
+  <Field {...args}>
+    <SelectField {...(args as SelectFieldProps)} />
+  </Field>
+);
 
 export const Default = Template.bind({});
 Default.args = { label: "My label", placeholder: "Select an option", options };
@@ -34,15 +39,14 @@ class PrimitiveBindindTest extends React.Component {
 
   render() {
     return (
-      <div>
+      <Field label="Text">
         <SelectField
-          label="Text"
           options={this.options}
           placeholder="Select an option"
           onChange={(ev: any) => this.setState({ selectedOption: ev })}
         />
         <p>Selected option: {this.state.selectedOption}</p>
-      </div>
+      </Field>
     );
   }
 }
@@ -72,9 +76,8 @@ class ObjectBindindTest extends React.Component<any, ObjectBindindTestState> {
 
   render() {
     return (
-      <div>
+      <Field label="Text">
         <SelectField
-          label="Text"
           options={this.options}
           value={undefined}
           labelKey="label"
@@ -83,7 +86,7 @@ class ObjectBindindTest extends React.Component<any, ObjectBindindTestState> {
           onChange={(ev: any) => this.setState({ selectedOption: ev })}
         />
         <p>Selected option: {this.state.selectedOption?.label}</p>
-      </div>
+      </Field>
     );
   }
 }

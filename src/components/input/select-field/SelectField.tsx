@@ -1,6 +1,6 @@
 import React from "react";
 
-interface SelectFieldProps {
+export interface SelectFieldProps {
   value?: string | number;
   options: Array<string | number | Object>;
   valueKey?: string;

@@ -1,6 +1,5 @@
 import React from "react";
 import Drawer from "../../components/navigation/drawer/Drawer";
-import DrawerItem from "../../components/navigation/drawer-item/DrawerItem";
 
 export default {
   title: "Navigation/Drawer",
@@ -18,7 +17,7 @@ class Toggler extends React.Component {
     return (
       <div className="relative">
         <Drawer open={this.state.open} handleClose={() => this.toggle()}>
-          <DrawerItem title="Item" />
+          Content
         </Drawer>
 
         <button className="btn btn-primary" onClick={() => this.toggle()}>

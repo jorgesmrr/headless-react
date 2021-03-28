@@ -1,6 +1,6 @@
 import React from "react";
 
-interface TextAreaFieldProps {
+export interface TextAreaFieldProps {
   value?: string | number;
   type?: string;
   id?: string;

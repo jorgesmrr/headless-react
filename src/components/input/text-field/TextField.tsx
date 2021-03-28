@@ -1,6 +1,6 @@
 import React from "react";
 
-interface TextFieldProps {
+export interface TextFieldProps {
   value?: string | number;
   id?: string;
   name?: string;

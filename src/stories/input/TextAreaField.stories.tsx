@@ -1,16 +1,17 @@
 import React, { useState } from "react";
 import { Story } from "@storybook/react/types-6-0";
-import TextAreaField, {
-  TextAreaFieldProps,
-} from "../../components/input/text-area-field/TextAreaField";
+import TextAreaField from "../../components/input/text-area-field/TextAreaField";
+import Field from "../../components/input/field/Field";
 
 export default {
   title: "Form/TextAreaField",
   component: TextAreaField,
 };
 
-const Template: Story<TextAreaFieldProps> = (args) => (
-  <TextAreaField {...args} />
+const Template: Story = (args) => (
+  <Field {...args}>
+    <TextAreaField {...args} />
+  </Field>
 );
 
 export const Default = Template.bind({});
@@ -29,9 +30,9 @@ export const Binding: React.FC = () => {
   const [text, setText] = useState("");
 
   return (
-    <div>
-      <TextAreaField label="Text" value={text} onChange={setText} />
+    <Field label="Text">
+      <TextAreaField value={text} onChange={setText} />
       <p>Typed text: {text}</p>
-    </div>
+    </Field>
   );
 };
