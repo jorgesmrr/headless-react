@@ -1,13 +1,14 @@
 import React from "react";
 import ReactDOM from "react-dom";
+import "./modal.css";
 
-interface Props {
+interface ModalProps {
   show: boolean;
   title: string;
   onDismiss: Function;
 }
 
-class Modal extends React.Component<Props> {
+class Modal extends React.Component<ModalProps> {
   dismiss() {
     if (this.props.onDismiss) {
       this.props.onDismiss();

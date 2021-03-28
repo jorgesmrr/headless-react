@@ -1,18 +1,20 @@
 import React from "react";
-import { Field, FieldProps } from "../field/Field";
-import FieldWrapper, { FieldWrapperProps } from "../field-wrapper/FieldWrapper";
 
-interface TextAreaProps {
+interface TextAreaFieldProps {
+  value?: string | number;
   type?: string;
+  id?: string;
+  name?: string;
+  placeholder?: string;
+  disabled?: boolean;
+  error?: boolean;
+  autoCleanErrors?: boolean;
   onChange?: Function;
 }
 
-export type TextAreaFieldProps = TextAreaProps & FieldProps & FieldWrapperProps;
-
-class TextAreaField extends Field<TextAreaFieldProps> {
+class TextAreaField extends React.Component<TextAreaFieldProps> {
   static defaultProps = {
-    ...Field.defaultProps,
-    type: "text",
+    autoCleanErrors: true,
   };
 
   onChange(event: React.FormEvent<HTMLTextAreaElement>) {
@@ -25,22 +27,15 @@ class TextAreaField extends Field<TextAreaFieldProps> {
 
   render() {
     return (
-      <FieldWrapper
-        for={this.props.id}
-        label={this.props.label}
-        hint={this.props.hint}
-        error={this.props.error}
-      >
-        <textarea
-          id={this.props.id}
-          name={this.props.name}
-          placeholder={this.props.placeholder}
-          value={this.props.value}
-          className={this.getInputClassName()}
-          disabled={this.props.disabled}
-          onChange={(ev) => this.onChange(ev)}
-        />
-      </FieldWrapper>
+      <textarea
+        id={this.props.id}
+        name={this.props.name}
+        placeholder={this.props.placeholder}
+        value={this.props.value}
+        className={this.props.error ? "field-error" : ""}
+        disabled={this.props.disabled}
+        onChange={(ev) => this.onChange(ev)}
+      />
     );
   }
 }

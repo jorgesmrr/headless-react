@@ -1281,11 +1281,6 @@
   resolved "https://registry.yarnpkg.com/@base2/pretty-print-object/-/pretty-print-object-1.0.0.tgz#860ce718b0b73f4009e153541faff2cb6b85d047"
   integrity sha512-4Th98KlMHr5+JkxfcoDT//6vY8vM+iSPrLNpHhRyLx2CFYi8e2RfqPLdpbnpo0Q5lQC5hNB79yes07zb02fvCw==
 
-"@bit/jorgemoreira.base.styles@0.0.2":
-  version "0.0.2"
-  resolved "https://node.bit.dev/jorgemoreira.base.styles/-/jorgemoreira.base.styles-0.0.2.tgz#15380eb6a144b2119073b254f3d7d51a54a8de78"
-  integrity sha1-FTgOtqFEshGQc7JU89fVGlSo3ng=
-
 "@cnakazawa/watch@^1.0.3":
   version "1.0.4"
   resolved "https://registry.yarnpkg.com/@cnakazawa/watch/-/watch-1.0.4.tgz#f864ae85004d0fcab6f50be9141c4da368d1656a"

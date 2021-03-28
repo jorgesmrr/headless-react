@@ -1,18 +1,24 @@
 import React from "react";
-import { Field, FieldProps } from "../field/Field";
-import FieldWrapper, { FieldWrapperProps } from "../field-wrapper/FieldWrapper";
 
-interface SelectProps {
+interface SelectFieldProps {
   value?: string | number;
   options: Array<string | number | Object>;
   valueKey?: string;
   labelKey?: string;
+  id?: string;
+  name?: string;
+  placeholder?: string;
+  disabled?: boolean;
+  error?: boolean;
+  autoCleanErrors?: boolean;
   onChange?: Function;
 }
 
-export type SelectFieldProps = SelectProps & FieldProps & FieldWrapperProps;
+class SelectField extends React.Component<SelectFieldProps> {
+  static defaultProps = {
+    autoCleanErrors: true,
+  };
 
-class SelectField extends Field<SelectFieldProps> {
   getItemFromValue(value: string | number) {
     return this.props.options.find(
       (o) => this.getItemValue(o).toString() === value
@@ -37,35 +43,29 @@ class SelectField extends Field<SelectFieldProps> {
 
   render() {
     return (
-      <FieldWrapper
-        for={this.props.id}
-        label={this.props.label}
-        hint={this.props.hint}
-        error={this.props.error}
+      <select
+        id={this.props.id}
+        name={this.props.name}
+        placeholder={this.props.placeholder}
+        className={this.props.error ? "field-error" : ""}
+        disabled={this.props.disabled}
+        value={this.props.value || ""}
+        onChange={(ev) => this.handleChange(ev)}
       >
-        <select
-          id={this.props.id}
-          placeholder={this.props.placeholder}
-          className={this.props.error ? "border-danger-2" : ""}
-          disabled={this.props.disabled}
-          value={this.props.value || ""}
-          onChange={(ev) => this.handleChange(ev)}
-        >
-          <option value="" disabled hidden={!this.props.placeholder}>
-            {this.props.placeholder}
-          </option>
+        <option value="" disabled hidden={!this.props.placeholder}>
+          {this.props.placeholder}
+        </option>
 
-          {this.props.options?.map((i) => {
-            const value = this.getItemValue(i);
+        {this.props.options?.map((i) => {
+          const value = this.getItemValue(i);
 
-            return (
-              <option key={value} value={value}>
-                {this.getItemLabel(i)}
-              </option>
-            );
-          })}
-        </select>
-      </FieldWrapper>
+          return (
+            <option key={value} value={value}>
+              {this.getItemLabel(i)}
+            </option>
+          );
+        })}
+      </select>
     );
   }
 }

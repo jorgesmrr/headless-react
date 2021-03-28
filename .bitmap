@@ -14,20 +14,7 @@
         "origin": "AUTHORED",
         "exported": true
     },
-    "jorgemoreira.react/input/field-wrapper@0.0.2": {
-        "files": [
-            {
-                "relativePath": "src/components/input/field-wrapper/FieldWrapper.tsx",
-                "test": false,
-                "name": "FieldWrapper.tsx"
-            }
-        ],
-        "mainFile": "src/components/input/field-wrapper/FieldWrapper.tsx",
-        "trackDir": "src/components/input/field-wrapper",
-        "origin": "AUTHORED",
-        "exported": true
-    },
-    "jorgemoreira.react/input/field@0.0.2": {
+    "jorgemoreira.react/input/field@0.0.1": {
         "files": [
             {
                 "relativePath": "src/components/input/field/Field.tsx",
@@ -66,7 +53,7 @@
         "origin": "AUTHORED",
         "exported": true
     },
-    "jorgemoreira.react/input/select-field@0.0.4": {
+    "jorgemoreira.react/input/select-field@0.0.2": {
         "files": [
             {
                 "relativePath": "src/components/input/select-field/SelectField.tsx",
@@ -79,12 +66,12 @@
         "origin": "AUTHORED",
         "exported": true
     },
-    "jorgemoreira.react/input/text-area-field@0.0.5": {
+    "jorgemoreira.react/input/text-area-field@0.0.2": {
         "files": [
             {
-                "name": "TextAreaField.tsx",
                 "relativePath": "src/components/input/text-area-field/TextAreaField.tsx",
-                "test": false
+                "test": false,
+                "name": "TextAreaField.tsx"
             }
         ],
         "mainFile": "src/components/input/text-area-field/TextAreaField.tsx",
@@ -92,12 +79,12 @@
         "origin": "AUTHORED",
         "exported": true
     },
-    "jorgemoreira.react/input/text-field@0.0.5": {
+    "jorgemoreira.react/input/text-field@0.0.2": {
         "files": [
             {
-                "name": "TextField.tsx",
                 "relativePath": "src/components/input/text-field/TextField.tsx",
-                "test": false
+                "test": false,
+                "name": "TextField.tsx"
             }
         ],
         "mainFile": "src/components/input/text-field/TextField.tsx",
@@ -105,25 +92,17 @@
         "origin": "AUTHORED",
         "exported": true
     },
-    "jorgemoreira.react/navigation/drawer-item@0.0.2": {
-        "files": [
-            {
-                "relativePath": "src/components/navigation/drawer-item/DrawerItem.tsx",
-                "test": false,
-                "name": "DrawerItem.tsx"
-            }
-        ],
-        "mainFile": "src/components/navigation/drawer-item/DrawerItem.tsx",
-        "trackDir": "src/components/navigation/drawer-item",
-        "origin": "AUTHORED",
-        "exported": true
-    },
-    "jorgemoreira.react/navigation/drawer@0.0.2": {
+    "jorgemoreira.react/navigation/drawer@0.0.3": {
         "files": [
             {
                 "relativePath": "src/components/navigation/drawer/Drawer.tsx",
                 "test": false,
                 "name": "Drawer.tsx"
+            },
+            {
+                "relativePath": "src/components/navigation/drawer/drawer.css",
+                "test": false,
+                "name": "drawer.css"
             }
         ],
         "mainFile": "src/components/navigation/drawer/Drawer.tsx",
@@ -131,38 +110,17 @@
         "origin": "AUTHORED",
         "exported": true
     },
-    "jorgemoreira.react/navigation/toolbar-item@0.0.2": {
-        "files": [
-            {
-                "relativePath": "src/components/navigation/toolbar-item/ToolbarItem.tsx",
-                "test": false,
-                "name": "ToolbarItem.tsx"
-            }
-        ],
-        "mainFile": "src/components/navigation/toolbar-item/ToolbarItem.tsx",
-        "trackDir": "src/components/navigation/toolbar-item",
-        "origin": "AUTHORED",
-        "exported": true
-    },
-    "jorgemoreira.react/navigation/toolbar@0.0.2": {
-        "files": [
-            {
-                "relativePath": "src/components/navigation/toolbar/Toolbar.tsx",
-                "test": false,
-                "name": "Toolbar.tsx"
-            }
-        ],
-        "mainFile": "src/components/navigation/toolbar/Toolbar.tsx",
-        "trackDir": "src/components/navigation/toolbar",
-        "origin": "AUTHORED",
-        "exported": true
-    },
-    "jorgemoreira.react/surface/modal@0.0.3": {
+    "jorgemoreira.react/surface/modal@0.0.4": {
         "files": [
             {
                 "relativePath": "src/components/surface/modal/Modal.tsx",
                 "test": false,
                 "name": "Modal.tsx"
+            },
+            {
+                "relativePath": "src/components/surface/modal/modal.css",
+                "test": false,
+                "name": "modal.css"
             }
         ],
         "mainFile": "src/components/surface/modal/Modal.tsx",
@@ -170,12 +128,17 @@
         "origin": "AUTHORED",
         "exported": true
     },
-    "jorgemoreira.react/surface/popover@0.0.2": {
+    "jorgemoreira.react/surface/popover@0.0.3": {
         "files": [
             {
                 "relativePath": "src/components/surface/popover/Popover.tsx",
                 "test": false,
                 "name": "Popover.tsx"
+            },
+            {
+                "relativePath": "src/components/surface/popover/popover.css",
+                "test": false,
+                "name": "popover.css"
             }
         ],
         "mainFile": "src/components/surface/popover/Popover.tsx",

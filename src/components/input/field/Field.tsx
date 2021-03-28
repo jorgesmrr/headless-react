@@ -1,29 +1,39 @@
 import React from "react";
 
 export interface FieldProps {
-  id?: string;
-  name?: string;
-  disabled?: boolean;
-  placeholder?: string;
-  inputClassName?: string;
-
-  value?: string | number | readonly string[];
-
-  autoCleanErrors?: boolean;
-
+  for?: string;
+  label?: string;
+  hint?: string;
   error?: string | boolean;
 }
 
-export class Field<T extends FieldProps> extends React.Component<T> {
-  static defaultProps = {
-    autoCleanErrors: true,
-  };
+class Field extends React.Component<FieldProps> {
+  render() {
+    const showErrorMessage =
+      this.props.error && typeof this.props.error === "string";
 
-  getInputClassName(): string {
-    let classes = this.props.inputClassName
-      ? this.props.inputClassName.split(" ")
-      : [];
-    if (this.props.error) classes.push("border-danger-2");
-    return classes.join(" ");
+    return (
+      <div className="field">
+        {this.props.label && (
+          <label htmlFor={this.props.for}>
+            {this.props.label}
+
+            {this.props.hint && <br />}
+
+            {this.props.hint && (
+              <small className="field-hint">{this.props.hint}</small>
+            )}
+          </label>
+        )}
+
+        {this.props.children}
+
+        {showErrorMessage && (
+          <small className="field-error">{this.props.error}</small>
+        )}
+      </div>
+    );
   }
 }
+
+export default Field;

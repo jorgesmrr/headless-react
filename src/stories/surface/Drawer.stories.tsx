@@ -1,6 +1,6 @@
 import React from "react";
-import Drawer from "../components/navigation/drawer/Drawer";
-import DrawerItem from "../components/navigation/drawer-item/DrawerItem";
+import Drawer from "../../components/navigation/drawer/Drawer";
+import DrawerItem from "../../components/navigation/drawer-item/DrawerItem";
 
 export default {
   title: "Navigation/Drawer",

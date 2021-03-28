@@ -1,4 +1,5 @@
 import React, { FunctionComponent } from "react";
+import "./drawer.css";
 
 interface Props {
   open: boolean;
@@ -7,7 +8,7 @@ interface Props {
 
 const Drawer: FunctionComponent<Props> = ({ open, handleClose, children }) => (
   <div>
-    <div v-if="open" className="fixed inset-0" onClick={() => handleClose()} />
+    {open && <div className="drawer-overlay" onClick={() => handleClose()} />}
 
     <div
       className={`drawer ${open ? "open" : null}`}
