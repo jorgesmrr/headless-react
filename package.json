@@ -57,9 +57,22 @@
   },
   "bit": {
     "env": {
-      "compiler": "bit.envs/compilers/react-typescript@3.1.57"
+      "compiler": {
+        "bit.envs/compilers/react-typescript@3.1.57": {
+          "rawConfig": {
+            "tsconfig": {
+              "compilerOptions": {
+                "module": "CommonJS"
+              }
+            }
+          }
+        }
+      }
     },
     "componentsDefaultDirectory": "components/{name}",
     "packageManager": "npm"
+  },
+  "prettier": {
+    "tabWidth": 2
   }
 }
