@@ -1,5 +1,4 @@
 import React, { CSSProperties } from "react";
-import "./popover.css";
 
 interface PopoverProps {
     show: boolean;

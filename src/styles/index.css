@@ -1,0 +1,157 @@
+/* Drawer */
+
+.drawer {
+    top: 0;
+    bottom: 0;
+    left: 0;
+    position: fixed;
+    z-index: 40;
+    overflow: auto;
+    transition: transform 150ms ease-in-out;
+    max-width: 70vw;
+}
+
+.drawer:not(.open) {
+    transform: translateX(-100%);
+}
+
+.drawer-overlay {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;;
+}
+
+.drawer-item {
+    cursor: pointer;
+}
+
+/* Spinner */
+.spinner {
+    padding: 1rem;
+}
+
+.spinner.small {
+    padding: .5rem;
+}
+
+.spinner.inline {
+    display: flex;
+    align-items: center;
+    padding: 0;
+}
+
+.spinner > .spin {
+    display: block;
+    margin: 0 auto;
+    border-radius: 100%;
+    animation: cr-spinner-spin .8s linear infinite;
+    border: 4px solid gray;
+    border-top: 4px solid black;
+    width: 2.5rem;
+    height: 2.5rem;
+    flex: 0 0 2rem;
+}
+
+.spinner.small > .spin {
+    border: 2px solid gray;
+    border-top: 2px solid black;
+    width: 1.5rem;
+    height: 1.5rem;
+    flex: 0 0 1.5rem;
+}
+
+.spinner.inline > .spin {
+    display: inline-block;
+    margin-right: .25rem;
+    margin-left: 0;
+    border: 2px solid gray;
+    border-top: 2px solid black;
+    width: 1em;
+    height: 1em;
+    flex: 0 0 1em;
+}
+
+@keyframes cr-spinner-spin {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+/* Modal */
+
+.modal {
+    position: fixed;
+    display: none;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 100;
+    opacity: 0;
+    transition: opacity 3s ease-in-out;
+    background-color: #00000044;
+}
+
+.modal .modal-content {
+    position: relative;
+    margin: 2rem;
+    height: calc(100vh - 4rem);
+    opacity: 0;
+}
+
+@media (min-width: 576px) {
+    .modal .modal-content {
+        width: 400px;
+        margin: 2rem auto 2rem;
+    }
+}
+
+.modal.open {
+    display: block;
+    animation: showModal 0.4s forwards;
+}
+
+.modal.open .modal-content {
+    animation: showModalBody 0.4s forwards;
+}
+
+@keyframes showModal {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes showModalBody {
+    from {
+        top: -300px;
+        opacity: 0;
+    }
+    to {
+        top: 0;
+        opacity: 1;
+    }
+}
+
+/* Popover */
+
+.popover-wrapper {
+    position: fixed;
+    z-index: 39;
+    right: 1rem;
+}
+
+.popover {
+    overflow: auto;
+    display: inline-block;
+    white-space: nowrap;
+    max-height: 100%;
+    max-width: 100%;
+}

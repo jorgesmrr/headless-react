@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@bit/bit.envs.compilers.typescript": "^3.1.53",
     "@testing-library/jest-dom": "^4.2.4",
     "@testing-library/react": "^9.3.2",
     "@testing-library/user-event": "^7.1.2",
@@ -21,7 +22,7 @@
     "react-dom": "^16.9.0"
   },
   "scripts": {
-    "build:styles": "postcss src/styles/main.css -o src/styles/main.output.css",
+    "build:styles": "postcss src/sample-styles/tailwind.css -o src/sample-styles/tailwind.output.css",
     "prestart": "yarn build:styles",
     "prebuild": "yarn build:styles",
     "prestorybook": "yarn build:styles",
@@ -57,7 +58,7 @@
   "bit": {
     "env": {
       "compiler": {
-        "bit.envs/compilers/react-typescript@3.1.57": {
+        "bit.envs/compilers/react-typescript@3.1.53": {
           "rawConfig": {
             "tsconfig": {
               "compilerOptions": {
@@ -65,6 +66,13 @@
               }
             }
           }
+        }
+      }
+    },
+    "overrides": {
+      "styles": {
+        "env": {
+          "compiler": "-"
         }
       }
     },
