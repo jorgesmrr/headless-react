@@ -79,7 +79,7 @@
         "origin": "AUTHORED",
         "exported": true
     },
-    "jorgemoreira.react/input/text-field@0.0.4": {
+    "jorgemoreira.react/input/text-field@0.0.5": {
         "files": [
             {
                 "relativePath": "src/components/input/text-field/TextField.tsx",
@@ -105,7 +105,7 @@
         "origin": "AUTHORED",
         "exported": true
     },
-    "jorgemoreira.react/styles@0.0.1": {
+    "jorgemoreira.react/styles@0.0.2": {
         "files": [
             {
                 "relativePath": "src/styles/index.css",
@@ -115,6 +115,19 @@
         ],
         "mainFile": "src/styles/index.css",
         "trackDir": "src/styles",
+        "origin": "AUTHORED",
+        "exported": true
+    },
+    "jorgemoreira.react/surface/modal@0.0.1": {
+        "files": [
+            {
+                "relativePath": "src/components/surface/modal/Modal.tsx",
+                "test": false,
+                "name": "Modal.tsx"
+            }
+        ],
+        "mainFile": "src/components/surface/modal/Modal.tsx",
+        "trackDir": "src/components/surface/modal",
         "origin": "AUTHORED",
         "exported": true
     },
