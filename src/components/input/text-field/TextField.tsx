@@ -1,3 +1,4 @@
+import classNames from "classnames";
 import React from "react";
 
 export interface TextFieldProps {
@@ -9,15 +10,27 @@ export interface TextFieldProps {
     error?: boolean;
     autoCleanErrors?: boolean;
     type?: string;
-    onChange?: Function;
     className?: string;
+    onChange?: Function;
+    onEnter?: Function;
 }
 
 class TextField extends React.Component<TextFieldProps> {
+    input: React.RefObject<HTMLInputElement> | null = null;
+
     static defaultProps = {
         type: "text",
         autoCleanErrors: true,
     };
+
+    constructor(props: TextFieldProps) {
+        super(props);
+        this.input = React.createRef();
+    }
+
+    focus() {
+        this.input?.current?.focus();
+    }
 
     onChange(event: React.FormEvent<HTMLInputElement>) {
         if (this.props.error && this.props.autoCleanErrors) {
@@ -27,11 +40,16 @@ class TextField extends React.Component<TextFieldProps> {
         this.props.onChange?.((event.target as HTMLInputElement).value);
     }
 
-    render() {
-        let className = this.props.className || "";
-        if (this.props.error) {
-            className += " field-error";
+    onKeyDown(event: React.KeyboardEvent<HTMLInputElement>) {
+        if (event.key === "Enter") {
+            this.props.onEnter?.();
         }
+    }
+
+    render() {
+        let className = classNames("text-field", this.props.className, {
+            "field-error": this.props.error,
+        });
 
         return (
             <input
@@ -42,7 +60,9 @@ class TextField extends React.Component<TextFieldProps> {
                 value={this.props.value}
                 className={className}
                 disabled={this.props.disabled}
+                ref={this.input}
                 onChange={(ev) => this.onChange(ev)}
+                onKeyDown={(event) => this.onKeyDown(event)}
             />
         );
     }
