@@ -29,7 +29,7 @@ class TextAreaField extends React.Component<TextAreaFieldProps> {
 
     render() {
         let className = classNames("text-area-field", this.props.className, {
-            "field-error": this.props.error,
+            "text-area-field--error": this.props.error,
         });
 
         return (

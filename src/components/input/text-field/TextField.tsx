@@ -48,7 +48,7 @@ class TextField extends React.Component<TextFieldProps> {
 
     render() {
         let className = classNames("text-field", this.props.className, {
-            "field-error": this.props.error,
+            "text-field--error": this.props.error,
         });
 
         return (

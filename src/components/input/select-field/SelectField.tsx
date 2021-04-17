@@ -45,7 +45,7 @@ class SelectField extends React.Component<SelectFieldProps> {
 
     render() {
         let className = classNames("select-field", this.props.className, {
-            "field-error": this.props.error,
+            "select-field--error": this.props.error,
         });
 
         return (
