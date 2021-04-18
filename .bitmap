@@ -105,7 +105,7 @@
         "origin": "AUTHORED",
         "exported": true
     },
-    "jorgemoreira.react/styles@0.0.2": {
+    "jorgemoreira.react/styles@0.0.3": {
         "files": [
             {
                 "relativePath": "src/styles/index.css",
