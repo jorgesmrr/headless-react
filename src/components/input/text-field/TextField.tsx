@@ -2,7 +2,7 @@ import classNames from "classnames";
 import React from "react";
 
 export interface TextFieldProps {
-    value?: string | number;
+    value: string | number;
     id?: string;
     name?: string;
     placeholder?: string;
