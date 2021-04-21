@@ -3,11 +3,10 @@ import ReactDOM from "react-dom";
 
 interface ModalProps {
     show: boolean;
-    title: string;
     onDismiss: () => void;
 }
 
-const Modal: React.FC<ModalProps> = ({ show, title, onDismiss, children }) => {
+const Modal: React.FC<ModalProps> = ({ show, onDismiss, children }) => {
     const handleClick = (event: any) => {
         if (
             event.target.classList.contains("modal") ||
@@ -28,19 +27,7 @@ const Modal: React.FC<ModalProps> = ({ show, title, onDismiss, children }) => {
 
     return ReactDOM.createPortal(
         <div className={`modal ${show ? "open" : ""}`} onClick={handleClick}>
-            <div className="modal-content">
-                <div className="card">
-                    <div className="card-block flex">
-                        <span className="card-title">{title}</span>
-                        <span
-                            className="fas fa-times ml-auto cursor-pointer"
-                            onClick={onDismiss}
-                        />
-                    </div>
-
-                    {children}
-                </div>
-            </div>
+            <div className="modal-content">{children}</div>
         </div>,
         element
     );
