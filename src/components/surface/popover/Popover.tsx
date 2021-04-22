@@ -1,12 +1,12 @@
 import React, { CSSProperties } from "react";
 
-interface PopoverProps {
+export interface PopoverProps {
     show: boolean;
     anchorElement: HTMLElement | null;
     onDismiss: Function;
 }
 
-interface PopoverState {
+export interface PopoverState {
     iSListeningToClicks: boolean;
     isListeningToScroll: boolean;
     popoverStyle: CSSProperties;

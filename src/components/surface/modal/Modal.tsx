@@ -1,7 +1,7 @@
 import React from "react";
 import ReactDOM from "react-dom";
 
-interface ModalProps {
+export interface ModalProps {
     show: boolean;
     onDismiss: () => void;
 }

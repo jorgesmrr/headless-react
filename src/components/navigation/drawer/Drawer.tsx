@@ -1,6 +1,6 @@
 import React, { FunctionComponent } from "react";
 
-interface Props {
+export interface Props {
     open: boolean;
     handleClose: Function;
 }

@@ -1,21 +1,21 @@
 import React from "react";
 import { Story } from "@storybook/react/types-6-0";
 import SelectField, {
-  SelectFieldProps,
+    SelectFieldProps,
 } from "../../components/input/select-field/SelectField";
 import Field from "../../components/input/field/Field";
 
 export default {
-  title: "Form/SelectField",
-  component: SelectField,
+    title: "Form/SelectField",
+    component: SelectField,
 };
 
 const options = ["One", "Two", "Three"];
 
 const Template: Story = (args) => (
-  <Field {...args}>
-    <SelectField {...(args as SelectFieldProps)} />
-  </Field>
+    <Field {...args}>
+        <SelectField {...(args as SelectFieldProps)} />
+    </Field>
 );
 
 export const Default = Template.bind({});
@@ -31,64 +31,69 @@ export const InvalidWithMessage = Template.bind({});
 InvalidWithMessage.args = { ...Default.args, error: "Required field" };
 
 class PrimitiveBindindTest extends React.Component {
-  state = {
-    selectedOption: null,
-  };
+    state = {
+        selectedOption: null,
+    };
 
-  options = ["A", "B", "C"];
+    options = ["A", "B", "C"];
 
-  render() {
-    return (
-      <Field label="Text">
-        <SelectField
-          options={this.options}
-          placeholder="Select an option"
-          onChange={(ev: any) => this.setState({ selectedOption: ev })}
-        />
-        <p>Selected option: {this.state.selectedOption}</p>
-      </Field>
-    );
-  }
+    render() {
+        return (
+            <Field label="Text">
+                <SelectField
+                    value={this.state.selectedOption}
+                    options={this.options}
+                    placeholder="Select an option"
+                    onChange={(ev: any) =>
+                        this.setState({ selectedOption: ev })
+                    }
+                />
+                <p>Selected option: {this.state.selectedOption}</p>
+            </Field>
+        );
+    }
 }
 
 export const PrimitiveBinding = () => <PrimitiveBindindTest />;
 
 interface ObjectBindindTestState {
-  selectedOption?: {
-    label: string;
-    value: number;
-  };
+    selectedOption: {
+        label: string;
+        value: number;
+    } | null;
 }
 
 class ObjectBindindTest extends React.Component<any, ObjectBindindTestState> {
-  constructor(props: any) {
-    super(props);
-    this.state = {
-      selectedOption: undefined,
-    };
-  }
+    constructor(props: any) {
+        super(props);
+        this.state = {
+            selectedOption: null,
+        };
+    }
 
-  options = [
-    { label: "A", value: 1 },
-    { label: "B", value: 2 },
-    { label: "C", value: 3 },
-  ];
+    options = [
+        { label: "A", value: 1 },
+        { label: "B", value: 2 },
+        { label: "C", value: 3 },
+    ];
 
-  render() {
-    return (
-      <Field label="Text">
-        <SelectField
-          options={this.options}
-          value={undefined}
-          labelKey="label"
-          valueKey="value"
-          placeholder="Select an option"
-          onChange={(ev: any) => this.setState({ selectedOption: ev })}
-        />
-        <p>Selected option: {this.state.selectedOption?.label}</p>
-      </Field>
-    );
-  }
+    render() {
+        return (
+            <Field label="Text">
+                <SelectField
+                    options={this.options}
+                    value={null}
+                    labelKey="label"
+                    valueKey="value"
+                    placeholder="Select an option"
+                    onChange={(ev: any) =>
+                        this.setState({ selectedOption: ev })
+                    }
+                />
+                <p>Selected option: {this.state.selectedOption?.label}</p>
+            </Field>
+        );
+    }
 }
 
 export const ObjectBinding = () => <ObjectBindindTest />;

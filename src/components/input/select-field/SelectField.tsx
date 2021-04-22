@@ -2,7 +2,7 @@ import classNames from "classnames";
 import React from "react";
 
 export interface SelectFieldProps {
-    value: string | number;
+    value: string | number | null;
     options: Array<string | number | Object>;
     valueKey?: string;
     labelKey?: string;
