@@ -56,13 +56,6 @@
     opacity: 0;
 }
 
-@media (min-width: 576px) {
-    .modal .modal-content {
-        width: 25rem;
-        margin: 2rem auto 2rem;
-    }
-}
-
 .modal.open {
     display: block;
     animation: showModal 0.4s forwards;
