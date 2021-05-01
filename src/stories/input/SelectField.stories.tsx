@@ -6,7 +6,7 @@ import SelectField, {
 import Field from "../../components/input/field/Field";
 
 export default {
-    title: "Form/SelectField",
+    title: "Input/SelectField",
     component: SelectField,
 };
 

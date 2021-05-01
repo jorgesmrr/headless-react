@@ -4,14 +4,14 @@ import TextAreaField from "../../components/input/text-area-field/TextAreaField"
 import Field from "../../components/input/field/Field";
 
 export default {
-  title: "Form/TextAreaField",
-  component: TextAreaField,
+    title: "Input/TextAreaField",
+    component: TextAreaField,
 };
 
 const Template: Story = (args) => (
-  <Field {...args}>
-    <TextAreaField {...args} />
-  </Field>
+    <Field {...args}>
+        <TextAreaField {...args} />
+    </Field>
 );
 
 export const Default = Template.bind({});
@@ -27,12 +27,12 @@ export const InvalidWithMessage = Template.bind({});
 InvalidWithMessage.args = { ...Default.args, error: "Required field" };
 
 export const Binding: React.FC = () => {
-  const [text, setText] = useState("");
+    const [text, setText] = useState("");
 
-  return (
-    <Field label="Text">
-      <TextAreaField value={text} onChange={setText} />
-      <p>Typed text: {text}</p>
-    </Field>
-  );
+    return (
+        <Field label="Text">
+            <TextAreaField value={text} onChange={setText} />
+            <p>Typed text: {text}</p>
+        </Field>
+    );
 };

@@ -4,7 +4,7 @@ import { Story } from "@storybook/react/types-6-0";
 import Field from "../../components/input/field/Field";
 
 export default {
-    title: "Form/TextField",
+    title: "Input/TextField",
     component: TextField,
 };
 
