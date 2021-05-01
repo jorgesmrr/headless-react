@@ -1,7 +1,10 @@
 {
-    "name": "react-components",
+    "name": "headless-react",
     "version": "0.1.0",
     "private": true,
+    "description": "A set of headless React components",
+    "author": "Jorge Moreira",
+    "license": "MIT",
     "dependencies": {
         "@testing-library/jest-dom": "^4.2.4",
         "@testing-library/react": "^9.3.2",
