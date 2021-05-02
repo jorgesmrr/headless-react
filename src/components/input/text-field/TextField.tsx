@@ -11,6 +11,7 @@ export interface TextFieldProps {
     autoCleanErrors?: boolean;
     type?: string;
     className?: string;
+    autoFocus?: boolean;
     onChange?: Function;
     onEnter?: Function;
 }
@@ -43,6 +44,12 @@ class TextField extends React.Component<TextFieldProps> {
     onKeyDown(event: React.KeyboardEvent<HTMLInputElement>) {
         if (event.key === "Enter") {
             this.props.onEnter?.();
+        }
+    }
+
+    componentDidMount() {
+        if (this.props.autoFocus) {
+            this.focus();
         }
     }
 
