@@ -36,7 +36,11 @@
 
 /* Master Detail */
 
-.master-detail {
+.master-detail,
+.master-detail__master,
+.master-detail__detail,
+.master-detail__master > *,
+.master-detail__detail > * {
     height: 100%;
 }
 
@@ -45,9 +49,7 @@
         position: fixed;
         top: 0;
         left: 0;
-        width: min(80vw, 21rem);
         height: 100vh;
-        z-index: 7;
         transform: translateX(0);
         opacity: 1;
         transition: transform 250ms ease-in-out;
@@ -59,10 +61,6 @@
         transition: transform 250ms ease-in-out, opacity 250ms ease-in-out 250ms;
     }
 
-    .master-detail__detail {
-        height: 100%;
-    }
-
     .master-detail__overlay {
         position: fixed;
         top: 0;
@@ -71,7 +69,6 @@
         height: 100vh;
         background-color: black;
         opacity: 0.2;
-        z-index: 6;
         transition: opacity 250ms ease-in-out;
     }
 
@@ -85,10 +82,6 @@
     .master-detail {
         display: flex;
         align-items: stretch;
-    }
-
-    .master-detail__master {
-        flex: 0 0 21rem;
     }
 
     .master-detail__detail {

@@ -123,7 +123,7 @@
         "origin": "AUTHORED",
         "exported": true
     },
-    "jorgemoreira.headless-react/surface/master-detail@0.0.1": {
+    "jorgemoreira.headless-react/surface/master-detail@0.0.3": {
         "files": [
             {
                 "relativePath": "src/components/surface/master-detail/MasterDetail.tsx",
@@ -162,7 +162,7 @@
         "origin": "AUTHORED",
         "exported": true
     },
-    "jorgemoreira.headless/styles@0.0.3": {
+    "jorgemoreira.headless/styles@0.0.5": {
         "files": [
             {
                 "relativePath": "src/styles/index.css",
