@@ -7,26 +7,46 @@ export default {
 };
 
 class Toggler extends React.Component {
-    state = { show: false };
+    state = { showDefault: false, showLarge: false };
 
-    toggle() {
-        this.setState({ show: !this.state.show });
+    toggleDefault() {
+        this.setState({ showDefault: !this.state.showDefault });
+    }
+
+    toggleLarge() {
+        this.setState({ showLarge: !this.state.showLarge });
     }
 
     render() {
         return (
             <div className="relative">
                 <Modal
-                    show={this.state.show}
-                    title="Title"
-                    onDismiss={() => this.toggle()}
-                />
+                    show={this.state.showDefault}
+                    onDismiss={() => this.toggleDefault()}
+                >
+                    <div style={{ background: "white" }}>Modal contents</div>
+                </Modal>
+
+                <Modal
+                    show={this.state.showLarge}
+                    width="45rem"
+                    onDismiss={() => this.toggleLarge()}
+                >
+                    <div style={{ background: "white" }}>Modal contents</div>
+                </Modal>
 
                 <button
                     className="btn btn-primary"
-                    onClick={() => this.toggle()}
+                    onClick={() => this.toggleDefault()}
                 >
-                    Show Modal
+                    Show default modal
+                </button>
+
+                <button
+                    className="btn btn-primary"
+                    onClick={() => this.toggleLarge()}
+                >
+                    Show large modal
                 </button>
             </div>
         );

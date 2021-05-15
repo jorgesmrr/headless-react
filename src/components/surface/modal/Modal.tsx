@@ -3,10 +3,17 @@ import ReactDOM from "react-dom";
 
 export interface ModalProps {
     show: boolean;
+    width?: string;
     onDismiss: () => void;
 }
 
-const Modal: React.FC<ModalProps> = ({ show, onDismiss, children }) => {
+const Modal: React.FC<ModalProps> = ({
+    show,
+    width = "25rem",
+    onDismiss,
+    children,
+}) => {
+    const rootStyle = { "--modal-width": width } as React.CSSProperties;
     const handleClick = (event: any) => {
         if (
             event.target.classList.contains("modal") ||
@@ -26,7 +33,11 @@ const Modal: React.FC<ModalProps> = ({ show, onDismiss, children }) => {
     }
 
     return ReactDOM.createPortal(
-        <div className={`modal ${show ? "open" : ""}`} onClick={handleClick}>
+        <div
+            className={`modal ${show ? "open" : ""}`}
+            style={rootStyle}
+            onClick={handleClick}
+        >
             <div className="modal-content">{children}</div>
         </div>,
         element

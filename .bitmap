@@ -136,7 +136,7 @@
         "origin": "AUTHORED",
         "exported": true
     },
-    "jorgemoreira.headless-react/surface/modal@0.0.1": {
+    "jorgemoreira.headless-react/surface/modal@0.0.2": {
         "files": [
             {
                 "relativePath": "src/components/surface/modal/Modal.tsx",
@@ -162,7 +162,7 @@
         "origin": "AUTHORED",
         "exported": true
     },
-    "jorgemoreira.headless/styles@0.0.5": {
+    "jorgemoreira.headless/styles@0.0.6": {
         "files": [
             {
                 "relativePath": "src/styles/index.css",

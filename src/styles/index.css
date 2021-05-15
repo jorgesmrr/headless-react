@@ -120,6 +120,14 @@
     animation: showModalBody 0.4s forwards;
 }
 
+@media (min-width: 1024px) {
+    .modal .modal-content {
+        width: var(--modal-width);
+        margin-left: auto;
+        margin-right: auto;
+    }
+}
+
 @keyframes showModal {
     from {
         opacity: 0;
