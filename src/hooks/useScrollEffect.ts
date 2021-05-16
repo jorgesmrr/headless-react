@@ -1,21 +1,28 @@
-import { useLayoutEffect } from "react";
+import { DependencyList, useLayoutEffect } from "react";
 
 export const useScrollEffect: (
     effect: ({ x, y }: { x: number; y: number }) => void,
+    dependencies?: DependencyList,
     throttleInterval?: number
-) => void = (effect, throttleInterval = 150) => {
+) => void = (effect, dependencies, throttleInterval = 150) => {
     const getScroll = () => {
         return { x: window.scrollX, y: window.scrollY };
     };
 
-    let throttleTimeout: number | null = null;
+    let isRunning = false;
 
     const effectWrapper = () => {
-        if (throttleTimeout === null) {
-            throttleTimeout = window.setTimeout(() => {
+        if (!isRunning) {
+            isRunning = true;
+            if (throttleInterval > 0) {
+                window.setTimeout(() => {
+                    effect(getScroll());
+                    isRunning = false;
+                }, throttleInterval);
+            } else {
                 effect(getScroll());
-                throttleTimeout = null;
-            }, throttleInterval);
+                isRunning = false;
+            }
         }
     };
 
@@ -23,5 +30,5 @@ export const useScrollEffect: (
         window.addEventListener("scroll", effectWrapper);
 
         return () => window.removeEventListener("scroll", effectWrapper);
-    });
+    }, dependencies);
 };
