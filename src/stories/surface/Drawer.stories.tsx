@@ -1,5 +1,6 @@
+import { Story } from "@storybook/react/types-6-0";
 import React from "react";
-import Drawer from "../../components/surface/drawer/Drawer";
+import Drawer, { DrawerProps } from "../../components/surface/drawer/Drawer";
 
 export default {
     title: "Surface/Drawer",
@@ -19,19 +20,16 @@ class Toggler extends React.Component {
                 <Drawer
                     open={this.state.open}
                     handleClose={() => this.toggle()}
+                    {...this.props}
                 >
                     Content
                 </Drawer>
 
-                <button
-                    className="btn btn-primary"
-                    onClick={() => this.toggle()}
-                >
-                    Show Drawer
-                </button>
+                <button onClick={() => this.toggle()}>Show Drawer</button>
             </div>
         );
     }
 }
 
-export const Default = () => <Toggler />;
+export const Default: Story<DrawerProps> = (args) => <Toggler {...args} />;
+Default.args = { background: "red", width: "5rem" };

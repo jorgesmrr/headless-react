@@ -24,7 +24,9 @@ class Toggler extends React.Component {
                     show={this.state.showDefault}
                     onDismiss={() => this.toggleDefault()}
                 >
-                    <div style={{ background: "white" }}>Modal contents</div>
+                    <div style={{ backgroundColor: "white" }}>
+                        Modal contents
+                    </div>
                 </Modal>
 
                 <Modal
@@ -32,7 +34,9 @@ class Toggler extends React.Component {
                     width="45rem"
                     onDismiss={() => this.toggleLarge()}
                 >
-                    <div style={{ background: "white" }}>Modal contents</div>
+                    <div style={{ backgroundColor: "white" }}>
+                        Modal contents
+                    </div>
                 </Modal>
 
                 <button

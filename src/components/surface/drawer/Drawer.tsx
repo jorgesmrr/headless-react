@@ -1,22 +1,38 @@
-import React, { FunctionComponent } from "react";
+import React, { CSSProperties, FunctionComponent } from "react";
 
-export interface Props {
+export interface DrawerProps {
     open: boolean;
     handleClose: Function;
+    width?: string;
+    background?: string;
 }
 
-const Drawer: FunctionComponent<Props> = ({ open, handleClose, children }) => (
-    <div>
-        {open && (
-            <div className="drawer-overlay" onClick={() => handleClose()} />
-        )}
+const Drawer: FunctionComponent<DrawerProps> = ({
+    open,
+    handleClose,
+    width,
+    background,
+    children,
+}) => {
+    const style = {
+        "--drawer-width": width || "16rem",
+        "--drawer-background": background || "white",
+    } as CSSProperties;
 
-        <div className={`drawer ${open ? "open" : null}`}>
-            <h4 className="px-4">Menu</h4>
+    return (
+        <div>
+            {open && (
+                <div
+                    className="drawer__overlay"
+                    onClick={() => handleClose()}
+                />
+            )}
 
-            <ul>{children}</ul>
+            <div className={`drawer ${open && "drawer--open"}`} style={style}>
+                {children}
+            </div>
         </div>
-    </div>
-);
+    );
+};
 
 export default Drawer;

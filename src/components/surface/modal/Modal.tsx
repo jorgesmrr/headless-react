@@ -1,3 +1,4 @@
+import classNames from "classnames";
 import React from "react";
 import ReactDOM from "react-dom";
 
@@ -13,11 +14,10 @@ const Modal: React.FC<ModalProps> = ({
     onDismiss,
     children,
 }) => {
-    const rootStyle = { "--modal-width": width } as React.CSSProperties;
     const handleClick = (event: any) => {
         if (
             event.target.classList.contains("modal") ||
-            event.target.classList.contains("modal-content")
+            event.target.classList.contains("modal__content")
         ) {
             event.preventDefault();
             event.stopPropagation();
@@ -32,13 +32,12 @@ const Modal: React.FC<ModalProps> = ({
         document.body.appendChild(element);
     }
 
+    const className = classNames("modal", { "modal--open": show });
+    const rootStyle = { "--modal-width": width } as React.CSSProperties;
+
     return ReactDOM.createPortal(
-        <div
-            className={`modal ${show ? "open" : ""}`}
-            style={rootStyle}
-            onClick={handleClick}
-        >
-            <div className="modal-content">{children}</div>
+        <div className={className} style={rootStyle} onClick={handleClick}>
+            <div className="modal__content">{children}</div>
         </div>,
         element
     );

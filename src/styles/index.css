@@ -9,14 +9,16 @@
     overflow: auto;
     transition: transform 150ms ease-in-out;
     max-width: 70vw;
-    width: 16rem;
+    width: var(--drawer-width);
+    height: 100vh;
+    background: var(--drawer-background);
 }
 
-.drawer:not(.open) {
+.drawer:not(.drawer--open) {
     transform: translateX(-100%);
 }
 
-.drawer-overlay {
+.drawer__overlay {
     position: fixed;
     top: 0;
     bottom: 0;
@@ -24,7 +26,7 @@
     right: 0;
 }
 
-.drawer-item {
+.drawer__item {
     cursor: pointer;
 }
 
@@ -104,24 +106,24 @@
     background-color: #00000044;
 }
 
-.modal .modal-content {
+.modal__content {
     position: relative;
     margin: 2rem;
     height: calc(100vh - 4rem);
     opacity: 0;
 }
 
-.modal.open {
+.modal--open {
     display: block;
     animation: showModal 0.4s forwards;
 }
 
-.modal.open .modal-content {
+.modal--open .modal__content {
     animation: showModalBody 0.4s forwards;
 }
 
 @media (min-width: 1024px) {
-    .modal .modal-content {
+    .modal__content {
         width: var(--modal-width);
         margin-left: auto;
         margin-right: auto;
@@ -169,36 +171,36 @@
     padding: 1rem;
 }
 
-.spinner.small {
+.spinner--small {
     padding: 0.5rem;
 }
 
-.spinner.inline {
+.spinner--inline {
     display: flex;
     align-items: center;
     padding: 0;
 }
 
-.spinner > .spin {
+.spinner__spin {
     display: block;
     margin: 0 auto;
     border-radius: 100%;
-    animation: cr-spinner-spin 0.8s linear infinite;
-    border: 0.25rem solid gray;
-    border-top: 0.25rem solid black;
+    animation: spinner-spin 0.8s linear infinite;
+    border: 0.25rem solid var(--spinner-secondary-color);
+    border-top: 0.25rem solid var(--spinner-primary-color);
     width: 2.5rem;
     height: 2.5rem;
     flex: 0 0 2rem;
 }
 
-.spinner.small > .spin {
+.spinner--small .spinner__spin {
     border-width: 0.125rem;
     width: 1.5rem;
     height: 1.5rem;
     flex: 0 0 1.5rem;
 }
 
-.spinner.inline > .spin {
+.spinner--inline > .spinner__spin {
     display: inline-block;
     margin-right: 0.25rem;
     margin-left: 0;
@@ -208,7 +210,7 @@
     flex: 0 0 1em;
 }
 
-@keyframes cr-spinner-spin {
+@keyframes spinner-spin {
     0% {
         transform: rotate(0deg);
     }
