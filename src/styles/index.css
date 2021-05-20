@@ -1,21 +1,24 @@
 /* Drawer */
 
-.drawer {
+.drawer__body {
     top: 0;
     bottom: 0;
     left: 0;
     position: fixed;
-    z-index: 40;
+    z-index: var(--drawer-z-index);
     overflow: auto;
-    transition: transform 150ms ease-in-out;
     max-width: 70vw;
     width: var(--drawer-width);
     height: 100vh;
     background: var(--drawer-background);
+    box-shadow: var(--drawer-shadow);
+    transform: translateX(-100%);
+    transition: transform var(--drawer-animation-duration)
+        var(--drawer-animation-curve);
 }
 
-.drawer:not(.drawer--open) {
-    transform: translateX(-100%);
+.drawer--open .drawer__body {
+    transform: translateX(0);
 }
 
 .drawer__overlay {
@@ -24,10 +27,17 @@
     bottom: 0;
     left: 0;
     right: 0;
+    background-color: black;
+    opacity: 0;
+    z-index: var(--drawer-overlay-z-index);
+    pointer-events: none;
+    transition: opacity var(--drawer-animation-duration)
+        var(--drawer-animation-curve);
 }
 
-.drawer__item {
-    cursor: pointer;
+.drawer--open .drawer__overlay {
+    pointer-events: auto;
+    opacity: var(--drawer-overlay-opacity);
 }
 
 /* Field */

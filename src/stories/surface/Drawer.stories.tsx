@@ -16,7 +16,7 @@ class Toggler extends React.Component {
 
     render() {
         return (
-            <div className="relative">
+            <div>
                 <Drawer
                     open={this.state.open}
                     handleClose={() => this.toggle()}
@@ -26,6 +26,11 @@ class Toggler extends React.Component {
                 </Drawer>
 
                 <button onClick={() => this.toggle()}>Show Drawer</button>
+
+                <div
+                    style={{ height: "10rem", backgroundColor: "black" }}
+                    onClick={() => console.log("saaa")}
+                />
             </div>
         );
     }
