@@ -19,7 +19,7 @@ class Toggler extends React.Component {
             <div>
                 <Drawer
                     open={this.state.open}
-                    handleClose={() => this.toggle()}
+                    onClose={() => this.toggle()}
                     {...this.props}
                 >
                     Content

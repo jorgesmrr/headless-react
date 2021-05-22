@@ -20,7 +20,7 @@ export interface RadioGroupProps {
 }
 
 class RadioGroup extends React.Component<RadioGroupProps> {
-    handleOptionChange(ev: React.ChangeEvent<HTMLInputElement>, value: any) {
+    onOptionChange(ev: React.ChangeEvent<HTMLInputElement>, value: any) {
         if (ev.target.checked) {
             this.props.onChange?.(value);
         }
@@ -33,7 +33,7 @@ class RadioGroup extends React.Component<RadioGroupProps> {
                     value={{
                         selectedValue: this.props.value,
                         name: this.props.name,
-                        onChange: (e, v) => this.handleOptionChange(e, v),
+                        onChange: (e, v) => this.onOptionChange(e, v),
                     }}
                 >
                     {this.props.children}

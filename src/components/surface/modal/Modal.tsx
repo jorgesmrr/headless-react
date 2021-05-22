@@ -14,7 +14,7 @@ const Modal: React.FC<ModalProps> = ({
     onDismiss,
     children,
 }) => {
-    const handleClick = (event: any) => {
+    const onClick = (event: any) => {
         if (
             event.target.classList.contains("modal") ||
             event.target.classList.contains("modal__content")
@@ -36,7 +36,7 @@ const Modal: React.FC<ModalProps> = ({
     const rootStyle = { "--modal-width": width } as React.CSSProperties;
 
     return ReactDOM.createPortal(
-        <div className={className} style={rootStyle} onClick={handleClick}>
+        <div className={className} style={rootStyle} onClick={onClick}>
             <div className="modal__content">{children}</div>
         </div>,
         element

@@ -35,7 +35,7 @@ class SelectField extends React.Component<SelectFieldProps> {
         return this.props.labelKey ? item[this.props.labelKey] : item;
     }
 
-    handleChange(event: React.ChangeEvent<HTMLSelectElement>) {
+    onChange(event: React.ChangeEvent<HTMLSelectElement>) {
         if (this.props.error && this.props.autoCleanErrors) {
             // todo clear error
         }
@@ -56,7 +56,7 @@ class SelectField extends React.Component<SelectFieldProps> {
                 className={className}
                 disabled={this.props.disabled}
                 value={this.props.value || ""}
-                onChange={(ev) => this.handleChange(ev)}
+                onChange={(ev) => this.onChange(ev)}
             >
                 <option value="" disabled hidden={!this.props.placeholder}>
                     {this.props.placeholder}

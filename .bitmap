@@ -32,7 +32,7 @@
         "origin": "AUTHORED",
         "exported": true
     },
-    "jorgemoreira.headless-react/input/radio-field@0.0.1": {
+    "jorgemoreira.headless-react/input/radio-field@0.0.2": {
         "files": [
             {
                 "relativePath": "src/components/input/radio-field/RadioField.tsx",
@@ -45,7 +45,7 @@
         "origin": "AUTHORED",
         "exported": true
     },
-    "jorgemoreira.headless-react/input/radio-group@0.0.1": {
+    "jorgemoreira.headless-react/input/radio-group@0.0.2": {
         "files": [
             {
                 "relativePath": "src/components/input/radio-group/RadioGroup.tsx",
@@ -58,7 +58,7 @@
         "origin": "AUTHORED",
         "exported": true
     },
-    "jorgemoreira.headless-react/input/select-field@0.0.1": {
+    "jorgemoreira.headless-react/input/select-field@0.0.2": {
         "files": [
             {
                 "relativePath": "src/components/input/select-field/SelectField.tsx",
@@ -110,7 +110,7 @@
         "origin": "AUTHORED",
         "exported": true
     },
-    "jorgemoreira.headless-react/surface/drawer@0.0.3": {
+    "jorgemoreira.headless-react/surface/drawer@0.0.4": {
         "files": [
             {
                 "relativePath": "src/components/surface/drawer/Drawer.tsx",
@@ -136,7 +136,7 @@
         "origin": "AUTHORED",
         "exported": true
     },
-    "jorgemoreira.headless-react/surface/modal@0.0.3": {
+    "jorgemoreira.headless-react/surface/modal@0.0.4": {
         "files": [
             {
                 "relativePath": "src/components/surface/modal/Modal.tsx",
@@ -149,7 +149,7 @@
         "origin": "AUTHORED",
         "exported": true
     },
-    "jorgemoreira.headless-react/surface/popover@0.0.1": {
+    "jorgemoreira.headless-react/surface/popover@0.0.2": {
         "files": [
             {
                 "relativePath": "src/components/surface/popover/Popover.tsx",

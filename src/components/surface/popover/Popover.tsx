@@ -17,14 +17,14 @@ const SUGGESTIONS_WINDOW_MARGIN = 28;
 
 class Popover extends React.Component<PopoverProps, PopoverState> {
     popoverRef: React.RefObject<HTMLDivElement>;
-    clickHandler: (this: Window, ev: MouseEvent) => any;
+    onClick: (this: Window, ev: MouseEvent) => any;
     state: PopoverState;
 
     constructor(props: PopoverProps) {
         super(props);
 
         this.popoverRef = React.createRef<HTMLDivElement>();
-        this.clickHandler = this.hide.bind(this);
+        this.onClick = this.hide.bind(this);
 
         this.state = {
             iSListeningToClicks: false,
@@ -77,11 +77,11 @@ class Popover extends React.Component<PopoverProps, PopoverState> {
     }
 
     startListeningClick() {
-        window.addEventListener("click", this.clickHandler);
+        window.addEventListener("click", this.onClick);
     }
 
     stopListeningClick() {
-        window.removeEventListener("click", this.clickHandler);
+        window.removeEventListener("click", this.onClick);
     }
 
     startListeningScroll() {

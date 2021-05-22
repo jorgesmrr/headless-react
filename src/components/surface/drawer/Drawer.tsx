@@ -2,7 +2,7 @@ import React, { CSSProperties, FunctionComponent } from "react";
 
 export interface DrawerProps {
     open: boolean;
-    handleClose: Function;
+    onClose: Function;
     width?: string;
     background?: string;
     shadow?: string;
@@ -14,7 +14,7 @@ export interface DrawerProps {
 
 const Drawer: FunctionComponent<DrawerProps> = ({
     open,
-    handleClose,
+    onClose,
     width = "16rem",
     background = "white",
     shadow = "none",
@@ -37,7 +37,7 @@ const Drawer: FunctionComponent<DrawerProps> = ({
 
     return (
         <div style={style} className={`drawer ${open && "drawer--open"}`}>
-            <div className="drawer__overlay" onClick={() => handleClose()} />
+            <div className="drawer__overlay" onClick={() => onClose()} />
             <div className="drawer__body">{children}</div>
         </div>
     );
