@@ -6,6 +6,7 @@ export interface CheckboxProps {
   label?: string;
   checked: boolean;
   disabled?: boolean;
+  dataTestId?: string;
   onChange?: Function;
 }
 
@@ -19,6 +20,7 @@ class CheckboxField extends React.Component<CheckboxProps> {
           name={this.props.name}
           checked={this.props.checked}
           disabled={this.props.disabled}
+          data-testid={this.props.dataTestId}
           onChange={(ev) => this.props.onChange?.(ev)}
         />
         {this.props.label}

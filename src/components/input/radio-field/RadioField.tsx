@@ -6,6 +6,7 @@ export interface RadioProps {
   label?: string;
   value: any;
   disabled?: boolean;
+  dataTestId?: string;
 }
 
 class RadioField extends React.Component<RadioProps> {
@@ -20,6 +21,7 @@ class RadioField extends React.Component<RadioProps> {
               name={name}
               checked={selectedValue === this.props.value}
               disabled={this.props.disabled}
+              data-testid={this.props.dataTestId}
               onChange={(ev) => onChange?.(ev, this.props.value)}
             />
             {this.props.label}

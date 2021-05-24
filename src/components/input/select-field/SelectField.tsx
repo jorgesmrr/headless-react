@@ -2,78 +2,80 @@ import classNames from "classnames";
 import React from "react";
 
 export interface SelectFieldProps {
-    value: string | number | null;
-    options: Array<string | number | Object>;
-    valueKey?: string;
-    labelKey?: string;
-    id?: string;
-    name?: string;
-    placeholder?: string;
-    disabled?: boolean;
-    error?: boolean;
-    autoCleanErrors?: boolean;
-    className?: string;
-    onChange?: Function;
+  value: string | number | null;
+  options: Array<string | number | Object>;
+  valueKey?: string;
+  labelKey?: string;
+  id?: string;
+  name?: string;
+  placeholder?: string;
+  disabled?: boolean;
+  error?: boolean;
+  autoCleanErrors?: boolean;
+  className?: string;
+  dataTestId?: string;
+  onChange?: Function;
 }
 
 class SelectField extends React.Component<SelectFieldProps> {
-    static defaultProps = {
-        autoCleanErrors: true,
-    };
+  static defaultProps = {
+    autoCleanErrors: true,
+  };
 
-    getItemFromValue(value: string | number) {
-        return this.props.options.find(
-            (o) => this.getItemValue(o).toString() === value
-        );
+  getItemFromValue(value: string | number) {
+    return this.props.options.find(
+      (o) => this.getItemValue(o).toString() === value
+    );
+  }
+
+  getItemValue(item: any): string | number {
+    return this.props.valueKey ? item[this.props.valueKey] : item;
+  }
+
+  getItemLabel(item: any): string {
+    return this.props.labelKey ? item[this.props.labelKey] : item;
+  }
+
+  onChange(event: React.ChangeEvent<HTMLSelectElement>) {
+    if (this.props.error && this.props.autoCleanErrors) {
+      // todo clear error
     }
 
-    getItemValue(item: any): string | number {
-        return this.props.valueKey ? item[this.props.valueKey] : item;
-    }
+    this.props.onChange?.(this.getItemFromValue(event.target.value));
+  }
 
-    getItemLabel(item: any): string {
-        return this.props.labelKey ? item[this.props.labelKey] : item;
-    }
+  render() {
+    let className = classNames("select-field", this.props.className, {
+      "select-field--error": this.props.error,
+    });
 
-    onChange(event: React.ChangeEvent<HTMLSelectElement>) {
-        if (this.props.error && this.props.autoCleanErrors) {
-            // todo clear error
-        }
+    return (
+      <select
+        id={this.props.id}
+        name={this.props.name}
+        placeholder={this.props.placeholder}
+        className={className}
+        disabled={this.props.disabled}
+        value={this.props.value || ""}
+        data-testid={this.props.dataTestId}
+        onChange={(ev) => this.onChange(ev)}
+      >
+        <option value="" disabled hidden={!this.props.placeholder}>
+          {this.props.placeholder}
+        </option>
 
-        this.props.onChange?.(this.getItemFromValue(event.target.value));
-    }
+        {this.props.options?.map((i) => {
+          const value = this.getItemValue(i);
 
-    render() {
-        let className = classNames("select-field", this.props.className, {
-            "select-field--error": this.props.error,
-        });
-
-        return (
-            <select
-                id={this.props.id}
-                name={this.props.name}
-                placeholder={this.props.placeholder}
-                className={className}
-                disabled={this.props.disabled}
-                value={this.props.value || ""}
-                onChange={(ev) => this.onChange(ev)}
-            >
-                <option value="" disabled hidden={!this.props.placeholder}>
-                    {this.props.placeholder}
-                </option>
-
-                {this.props.options?.map((i) => {
-                    const value = this.getItemValue(i);
-
-                    return (
-                        <option key={value} value={value}>
-                            {this.getItemLabel(i)}
-                        </option>
-                    );
-                })}
-            </select>
-        );
-    }
+          return (
+            <option key={value} value={value}>
+              {this.getItemLabel(i)}
+            </option>
+          );
+        })}
+      </select>
+    );
+  }
 }
 
 export default SelectField;

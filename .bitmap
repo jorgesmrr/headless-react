@@ -32,7 +32,7 @@
         "origin": "AUTHORED",
         "exported": true
     },
-    "jorgemoreira.headless-react/input/radio-field@0.0.2": {
+    "jorgemoreira.headless-react/input/radio-field@0.0.3": {
         "files": [
             {
                 "relativePath": "src/components/input/radio-field/RadioField.tsx",
@@ -58,7 +58,7 @@
         "origin": "AUTHORED",
         "exported": true
     },
-    "jorgemoreira.headless-react/input/select-field@0.0.2": {
+    "jorgemoreira.headless-react/input/select-field@0.0.3": {
         "files": [
             {
                 "relativePath": "src/components/input/select-field/SelectField.tsx",
@@ -71,7 +71,7 @@
         "origin": "AUTHORED",
         "exported": true
     },
-    "jorgemoreira.headless-react/input/text-area-field@0.0.1": {
+    "jorgemoreira.headless-react/input/text-area-field@0.0.2": {
         "files": [
             {
                 "relativePath": "src/components/input/text-area-field/TextAreaField.tsx",
@@ -84,7 +84,7 @@
         "origin": "AUTHORED",
         "exported": true
     },
-    "jorgemoreira.headless-react/input/text-field@0.0.2": {
+    "jorgemoreira.headless-react/input/text-field@0.0.4": {
         "files": [
             {
                 "relativePath": "src/components/input/text-field/TextField.tsx",
@@ -97,7 +97,7 @@
         "origin": "AUTHORED",
         "exported": true
     },
-    "jorgemoreira.headless-react/progress/spinner@0.0.2": {
+    "jorgemoreira.headless-react/progress/spinner@0.0.3": {
         "files": [
             {
                 "relativePath": "src/components/progress/spinner/Spinner.tsx",
@@ -110,7 +110,7 @@
         "origin": "AUTHORED",
         "exported": true
     },
-    "jorgemoreira.headless-react/surface/drawer@0.0.4": {
+    "jorgemoreira.headless-react/surface/drawer@0.0.6": {
         "files": [
             {
                 "relativePath": "src/components/surface/drawer/Drawer.tsx",
@@ -123,7 +123,7 @@
         "origin": "AUTHORED",
         "exported": true
     },
-    "jorgemoreira.headless-react/surface/master-detail@0.0.3": {
+    "jorgemoreira.headless-react/surface/master-detail@0.0.5": {
         "files": [
             {
                 "relativePath": "src/components/surface/master-detail/MasterDetail.tsx",
@@ -136,7 +136,7 @@
         "origin": "AUTHORED",
         "exported": true
     },
-    "jorgemoreira.headless-react/surface/modal@0.0.4": {
+    "jorgemoreira.headless-react/surface/modal@0.0.5": {
         "files": [
             {
                 "relativePath": "src/components/surface/modal/Modal.tsx",
@@ -149,7 +149,7 @@
         "origin": "AUTHORED",
         "exported": true
     },
-    "jorgemoreira.headless-react/surface/popover@0.0.2": {
+    "jorgemoreira.headless-react/surface/popover@0.0.3": {
         "files": [
             {
                 "relativePath": "src/components/surface/popover/Popover.tsx",
