@@ -1,88 +1,88 @@
 {
-    "name": "headless-react",
-    "version": "0.1.0",
-    "private": true,
-    "description": "A set of headless React components",
-    "author": "Jorge Moreira",
-    "license": "MIT",
-    "dependencies": {
-        "@testing-library/jest-dom": "^4.2.4",
-        "@testing-library/react": "^9.3.2",
-        "@testing-library/user-event": "^7.1.2",
-        "@types/jest": "^24.0.0",
-        "@types/node": "^12.0.0",
-        "@types/react": "^16.9.0",
-        "@types/react-dom": "^16.9.0",
-        "classnames": "^2.3.1",
-        "postcss-cli": "^7.1.1",
-        "postcss-import": "^12.0.1",
-        "react-scripts": "3.4.1",
-        "tailwindcss": "^1.6.1",
-        "typescript": "~3.7.2"
-    },
-    "peerDependencies": {
-        "react": "^16.9.0",
-        "react-dom": "^16.9.0"
-    },
-    "scripts": {
-        "build:styles": "postcss src/sample-styles/tailwind.css -o src/sample-styles/tailwind.output.css",
-        "prestart": "yarn build:styles",
-        "prebuild": "yarn build:styles",
-        "prestorybook": "yarn build:styles",
-        "prebuild-storybook": "yarn build:styles",
-        "start": "react-scripts start",
-        "build": "react-scripts build",
-        "test": "react-scripts test",
-        "eject": "react-scripts eject",
-        "storybook": "start-storybook -p 9009 -s public",
-        "build-storybook": "build-storybook -s public"
-    },
-    "browserslist": {
-        "production": [
-            ">0.2%",
-            "not dead",
-            "not op_mini all"
-        ],
-        "development": [
-            "last 1 chrome version",
-            "last 1 firefox version",
-            "last 1 safari version"
-        ]
-    },
-    "devDependencies": {
-        "@storybook/addon-actions": "^6.0.20",
-        "@storybook/addon-essentials": "^6.0.20",
-        "@storybook/addon-links": "^6.0.20",
-        "@storybook/addons": "^6.0.20",
-        "@storybook/preset-create-react-app": "^3.1.4",
-        "@storybook/react": "^6.2.9",
-        "babel-loader": "^8.1.0",
-        "chromatic": "^5.8.1",
-        "react": "^17.0.2",
-        "react-dom": "^17.0.2"
-    },
-    "bit": {
-        "env": {
-            "compiler": {
-                "bit.envs/compilers/react-typescript@4.0.0": {
-                    "rawConfig": {
-                        "tsconfig": {
-                            "compilerOptions": {
-                                "module": "CommonJS"
-                            }
-                        }
-                    }
-                }
+  "name": "headless-react",
+  "version": "0.1.0",
+  "private": true,
+  "description": "A set of headless React components",
+  "author": "Jorge Moreira",
+  "license": "MIT",
+  "dependencies": {
+    "@testing-library/jest-dom": "^5.11.4",
+    "@testing-library/react": "^11.1.0",
+    "@testing-library/user-event": "^12.1.10",
+    "@types/jest": "^26.0.15",
+    "@types/node": "^12.0.0",
+    "@types/react": "^17.0.0",
+    "@types/react-dom": "^17.0.0",
+    "babel-loader": "8.1.0",
+    "classnames": "^2.3.1",
+    "postcss-cli": "^7.1.1",
+    "postcss-import": "^12.0.1",
+    "react-scripts": "4.0.3",
+    "tailwindcss": "^1.6.1",
+    "typescript": "^4.1.2"
+  },
+  "peerDependencies": {
+    "react": "^16.9.0",
+    "react-dom": "^16.9.0"
+  },
+  "scripts": {
+    "build:styles": "postcss src/sample-styles/tailwind.css -o src/sample-styles/tailwind.output.css",
+    "prestart": "yarn build:styles",
+    "prebuild": "yarn build:styles",
+    "prestorybook": "yarn build:styles",
+    "prebuild-storybook": "yarn build:styles",
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject",
+    "storybook": "start-storybook -p 9009 -s public",
+    "build-storybook": "build-storybook -s public"
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  },
+  "devDependencies": {
+    "@storybook/addon-actions": "^6.0.20",
+    "@storybook/addon-essentials": "^6.0.20",
+    "@storybook/addon-links": "^6.0.20",
+    "@storybook/addons": "^6.0.20",
+    "@storybook/preset-create-react-app": "^3.1.4",
+    "@storybook/react": "^6.2.9",
+    "chromatic": "^5.8.1",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2"
+  },
+  "bit": {
+    "env": {
+      "compiler": {
+        "bit.envs/compilers/react-typescript@4.0.0": {
+          "rawConfig": {
+            "tsconfig": {
+              "compilerOptions": {
+                "module": "CommonJS"
+              }
             }
-        },
-        "componentsDefaultDirectory": "components/{name}",
-        "packageManager": "npm",
-        "overrides": {
-            "styles": {
-                "env": {
-                    "compiler": "-"
-                }
-            }
+          }
         }
+      }
+    },
+    "componentsDefaultDirectory": "components/{name}",
+    "packageManager": "npm",
+    "overrides": {
+      "styles": {
+        "env": {
+          "compiler": "-"
+        }
+      }
     }
+  }
 }
