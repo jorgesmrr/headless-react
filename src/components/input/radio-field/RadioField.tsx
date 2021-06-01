@@ -9,27 +9,29 @@ export interface RadioProps {
   dataTestId?: string;
 }
 
-class RadioField extends React.Component<RadioProps> {
-  render() {
-    return (
-      <RadioContext.Consumer>
-        {({ selectedValue, name, onChange }) => (
-          <label className="block">
-            <input
-              type="radio"
-              id={this.props.id}
-              name={name}
-              checked={selectedValue === this.props.value}
-              disabled={this.props.disabled}
-              data-testid={this.props.dataTestId}
-              onChange={(ev) => onChange?.(ev, this.props.value)}
-            />
-            {this.props.label}
-          </label>
-        )}
-      </RadioContext.Consumer>
-    );
-  }
-}
+const RadioField: React.FC<RadioProps> = ({
+  id,
+  label,
+  value,
+  disabled,
+  dataTestId,
+}) => (
+  <RadioContext.Consumer>
+    {({ selectedValue, name, onChange }) => (
+      <label className="block">
+        <input
+          type="radio"
+          id={id}
+          name={name}
+          checked={selectedValue === value}
+          disabled={disabled}
+          data-testid={dataTestId}
+          onChange={(ev) => onChange?.(ev, value)}
+        />
+        {label}
+      </label>
+    )}
+  </RadioContext.Consumer>
+);
 
 export default RadioField;

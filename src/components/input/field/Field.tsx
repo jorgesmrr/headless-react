@@ -1,38 +1,34 @@
 import React from "react";
 
 export interface FieldProps {
-    for?: string;
-    label?: string;
-    hint?: string;
-    error?: string;
+  for?: string;
+  label?: string;
+  hint?: string;
+  error?: string;
 }
 
-class Field extends React.Component<FieldProps> {
-    render() {
-        return (
-            <div className="field">
-                {this.props.label && (
-                    <label htmlFor={this.props.for}>
-                        {this.props.label}
+const Field: React.FC<FieldProps> = ({
+  for: htmlFor,
+  label,
+  hint,
+  error,
+  children,
+}) => (
+  <div className="field">
+    {label && (
+      <label htmlFor={htmlFor}>
+        {label}
 
-                        {this.props.hint && <br />}
+        {hint && <br />}
 
-                        {this.props.hint && (
-                            <small className="field-hint">
-                                {this.props.hint}
-                            </small>
-                        )}
-                    </label>
-                )}
+        {hint && <small className="field-hint">{hint}</small>}
+      </label>
+    )}
 
-                {this.props.children}
+    {children}
 
-                {this.props.error && (
-                    <small className="field-error">{this.props.error}</small>
-                )}
-            </div>
-        );
-    }
-}
+    {error && <small className="field-error">{error}</small>}
+  </div>
+);
 
 export default Field;

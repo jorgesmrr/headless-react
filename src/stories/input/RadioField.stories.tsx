@@ -1,35 +1,29 @@
-import React from "react";
+import React, { useState } from "react";
 import RadioField from "../../components/input/radio-field/RadioField";
 import RadioGroup from "../../components/input/radio-group/RadioGroup";
 
 export default {
-    title: "Input/RadioField",
-    component: RadioField,
+  title: "Input/RadioField",
+  component: RadioField,
 };
 
-class BindindTest extends React.Component {
-    state = {
-        selectedOption: undefined,
-    };
+const BindindTest: React.FC = () => {
+  const [selectedOption, setSelectedOption] = useState();
 
-    render() {
-        return (
-            <div>
-                <RadioGroup
-                    name="binding"
-                    value={this.state.selectedOption}
-                    onChange={(option) =>
-                        this.setState({ selectedOption: option })
-                    }
-                >
-                    <RadioField label="A" value={1} />
-                    <RadioField label="B" value={2} />
-                    <RadioField label="C" value={3} />
-                </RadioGroup>
-                <p>Selected option: {this.state.selectedOption}</p>
-            </div>
-        );
-    }
-}
+  return (
+    <div>
+      <RadioGroup
+        name="binding"
+        value={selectedOption}
+        onChange={(option) => setSelectedOption(option)}
+      >
+        <RadioField label="A" value={1} />
+        <RadioField label="B" value={2} />
+        <RadioField label="C" value={3} />
+      </RadioGroup>
+      <p>Selected option: {selectedOption}</p>
+    </div>
+  );
+};
 
 export const Binding = () => <BindindTest />;

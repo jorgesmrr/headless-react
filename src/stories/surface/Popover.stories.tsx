@@ -1,40 +1,28 @@
-import React from "react";
+import React, { useRef, useState } from "react";
 import Popover from "../../components/surface/popover/Popover";
 
 export default {
-    title: "Surface/Popover",
-    componet: Popover,
+  title: "Surface/Popover",
+  componet: Popover,
 };
 
-class Toggler extends React.Component {
-    private anchorRef = React.createRef<HTMLButtonElement>();
+const Toggler: React.FC = () => {
+  const anchorRef = useRef<HTMLButtonElement>(null);
 
-    state = { show: false };
+  const [show, setShow] = useState(false);
 
-    toggle() {
-        this.setState({ show: !this.state.show });
-    }
+  const toggle = () => setShow(!show);
 
-    render() {
-        return (
-            <div className="relative">
-                <button
-                    className="btn btn-primary"
-                    ref={this.anchorRef}
-                    onClick={() => this.toggle()}
-                >
-                    Show Popover
-                </button>
-                <Popover
-                    show={this.state.show}
-                    anchorElement={this.anchorRef.current}
-                    onDismiss={() => this.toggle()}
-                >
-                    Example
-                </Popover>
-            </div>
-        );
-    }
-}
+  return (
+    <div className="relative">
+      <button className="btn btn-primary" ref={anchorRef} onClick={toggle}>
+        Show Popover
+      </button>
+      <Popover show={show} anchorElement={anchorRef.current} onDismiss={toggle}>
+        Example
+      </Popover>
+    </div>
+  );
+};
 
 export const Default = () => <Toggler />;

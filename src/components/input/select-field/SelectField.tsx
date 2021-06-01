@@ -11,71 +11,71 @@ export interface SelectFieldProps {
   placeholder?: string;
   disabled?: boolean;
   error?: boolean;
-  autoCleanErrors?: boolean;
   className?: string;
   dataTestId?: string;
   onChange?: Function;
 }
 
-class SelectField extends React.Component<SelectFieldProps> {
-  static defaultProps = {
-    autoCleanErrors: true,
+const SelectField: React.FC<SelectFieldProps> = ({
+  value,
+  options,
+  valueKey,
+  labelKey,
+  id,
+  name,
+  placeholder,
+  disabled,
+  error,
+  className,
+  dataTestId,
+  onChange,
+}) => {
+  const getItemFromValue = (value: string | number) => {
+    return options.find((o) => getItemValue(o).toString() === value);
   };
 
-  getItemFromValue(value: string | number) {
-    return this.props.options.find(
-      (o) => this.getItemValue(o).toString() === value
-    );
-  }
+  const getItemValue = (item: any): string | number => {
+    return valueKey ? item[valueKey] : item;
+  };
 
-  getItemValue(item: any): string | number {
-    return this.props.valueKey ? item[this.props.valueKey] : item;
-  }
+  const getItemLabel = (item: any): string => {
+    return labelKey ? item[labelKey] : item;
+  };
 
-  getItemLabel(item: any): string {
-    return this.props.labelKey ? item[this.props.labelKey] : item;
-  }
+  const onChangeWrapper = (event: React.ChangeEvent<HTMLSelectElement>) => {
+    onChange?.(getItemFromValue(event.target.value));
+  };
 
-  onChange(event: React.ChangeEvent<HTMLSelectElement>) {
-    if (this.props.error && this.props.autoCleanErrors) {
-      // todo clear error
-    }
+  let computedClassName = classNames("select-field", className, {
+    "select-field--error": error,
+  });
 
-    this.props.onChange?.(this.getItemFromValue(event.target.value));
-  }
+  return (
+    <select
+      id={id}
+      name={name}
+      placeholder={placeholder}
+      className={computedClassName}
+      disabled={disabled}
+      value={value || ""}
+      data-testid={dataTestId}
+      onChange={onChangeWrapper}
+    >
+      <option value="" disabled hidden={!placeholder}>
+        {placeholder}
+      </option>
 
-  render() {
-    let className = classNames("select-field", this.props.className, {
-      "select-field--error": this.props.error,
-    });
+      {options?.map((i) => {
+        const value = getItemValue(i);
 
-    return (
-      <select
-        id={this.props.id}
-        name={this.props.name}
-        placeholder={this.props.placeholder}
-        className={className}
-        disabled={this.props.disabled}
-        value={this.props.value || ""}
-        data-testid={this.props.dataTestId}
-        onChange={(ev) => this.onChange(ev)}
-      >
-        <option value="" disabled hidden={!this.props.placeholder}>
-          {this.props.placeholder}
-        </option>
-
-        {this.props.options?.map((i) => {
-          const value = this.getItemValue(i);
-
-          return (
-            <option key={value} value={value}>
-              {this.getItemLabel(i)}
-            </option>
-          );
-        })}
-      </select>
-    );
-  }
-}
+        return (
+          <option key={value} value={value}>
+            {getItemLabel(i)}
+          </option>
+        );
+      })}
+    </select>
+  );
+};
 
 export default SelectField;

@@ -9,22 +9,24 @@ export interface TextAreaFieldProps {
   placeholder?: string;
   disabled?: boolean;
   error?: boolean;
-  autoCleanErrors?: boolean;
   className?: string;
   dataTestId?: string;
   onChange?: Function;
 }
 
 class TextAreaField extends React.Component<TextAreaFieldProps> {
-  static defaultProps = {
-    autoCleanErrors: true,
-  };
+  inputRef: React.RefObject<HTMLTextAreaElement> | null = null;
+
+  constructor(props: TextAreaFieldProps) {
+    super(props);
+    this.inputRef = React.createRef();
+  }
+
+  focus() {
+    this.inputRef?.current?.focus();
+  }
 
   onChange(event: React.FormEvent<HTMLTextAreaElement>) {
-    if (this.props.error && this.props.autoCleanErrors) {
-      // todo
-    }
-
     this.props.onChange?.((event.target as HTMLTextAreaElement).value);
   }
 
@@ -35,6 +37,7 @@ class TextAreaField extends React.Component<TextAreaFieldProps> {
 
     return (
       <textarea
+        ref={this.inputRef}
         id={this.props.id}
         name={this.props.name}
         placeholder={this.props.placeholder}

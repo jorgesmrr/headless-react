@@ -1,99 +1,88 @@
-import React from "react";
+import React, { useState } from "react";
 import { Story } from "@storybook/react/types-6-0";
 import SelectField, {
-    SelectFieldProps,
+  SelectFieldProps,
 } from "../../components/input/select-field/SelectField";
 import Field from "../../components/input/field/Field";
 
 export default {
-    title: "Input/SelectField",
-    component: SelectField,
+  title: "Input/SelectField",
+  component: SelectField,
 };
 
 const options = ["One", "Two", "Three"];
 
-const Template: Story = (args) => (
-    <Field {...args}>
-        <SelectField {...(args as SelectFieldProps)} />
+const PrimitiveBindindTest: React.FC = () => {
+  const [selectedOption, setSelectedOption] = useState<string | null>(null);
+
+  const options = ["A", "B", "C"];
+
+  return (
+    <Field label="Text">
+      <SelectField
+        value={selectedOption}
+        options={options}
+        placeholder="Select an option"
+        onChange={setSelectedOption}
+      />
+      <p>Selected option: {selectedOption}</p>
     </Field>
-);
-
-export const Default = Template.bind({});
-Default.args = { label: "My label", placeholder: "Select an option", options };
-
-export const WithHint = Template.bind({});
-WithHint.args = { ...Default.args, hint: "Be creative!" };
-
-export const Invalid = Template.bind({});
-Invalid.args = { ...Default.args, error: true };
-
-export const InvalidWithMessage = Template.bind({});
-InvalidWithMessage.args = { ...Default.args, error: "Required field" };
-
-class PrimitiveBindindTest extends React.Component {
-    state = {
-        selectedOption: null,
-    };
-
-    options = ["A", "B", "C"];
-
-    render() {
-        return (
-            <Field label="Text">
-                <SelectField
-                    value={this.state.selectedOption}
-                    options={this.options}
-                    placeholder="Select an option"
-                    onChange={(ev: any) =>
-                        this.setState({ selectedOption: ev })
-                    }
-                />
-                <p>Selected option: {this.state.selectedOption}</p>
-            </Field>
-        );
-    }
-}
+  );
+};
 
 export const PrimitiveBinding = () => <PrimitiveBindindTest />;
 
-interface ObjectBindindTestState {
-    selectedOption: {
-        label: string;
-        value: number;
-    } | null;
+interface ObjectBindindItem {
+  label: string;
+  value: number;
 }
 
-class ObjectBindindTest extends React.Component<any, ObjectBindindTestState> {
-    constructor(props: any) {
-        super(props);
-        this.state = {
-            selectedOption: null,
-        };
-    }
+const ObjectBindindTest: React.FC = () => {
+  const [
+    selectedOption,
+    setSelectedOption,
+  ] = useState<ObjectBindindItem | null>(null);
 
-    options = [
-        { label: "A", value: 1 },
-        { label: "B", value: 2 },
-        { label: "C", value: 3 },
-    ];
+  const options = [
+    { label: "A", value: 1 },
+    { label: "B", value: 2 },
+    { label: "C", value: 3 },
+  ];
 
-    render() {
-        return (
-            <Field label="Text">
-                <SelectField
-                    options={this.options}
-                    value={null}
-                    labelKey="label"
-                    valueKey="value"
-                    placeholder="Select an option"
-                    onChange={(ev: any) =>
-                        this.setState({ selectedOption: ev })
-                    }
-                />
-                <p>Selected option: {this.state.selectedOption?.label}</p>
-            </Field>
-        );
-    }
-}
+  return (
+    <Field label="Text">
+      <SelectField
+        options={options}
+        value={null}
+        labelKey="label"
+        valueKey="value"
+        placeholder="Select an option"
+        onChange={setSelectedOption}
+      />
+      <p>Selected option: {selectedOption?.label}</p>
+    </Field>
+  );
+};
 
 export const ObjectBinding = () => <ObjectBindindTest />;
+
+const Template: Story = (args) => (
+  <Field {...args}>
+    <SelectField {...(args as SelectFieldProps)} />
+  </Field>
+);
+
+const basicArgs = {
+  label: "My label",
+  placeholder: "Select an option",
+  options,
+};
+
+export const WithHint = Template.bind({});
+WithHint.args = { ...basicArgs, hint: "Be creative!" };
+
+export const Invalid = Template.bind({});
+Invalid.args = { ...basicArgs, error: true };
+
+export const InvalidWithMessage = Template.bind({});
+InvalidWithMessage.args = { ...basicArgs, error: "Required field" };

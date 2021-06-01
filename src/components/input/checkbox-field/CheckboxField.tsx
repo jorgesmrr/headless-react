@@ -10,23 +10,27 @@ export interface CheckboxProps {
   onChange?: Function;
 }
 
-class CheckboxField extends React.Component<CheckboxProps> {
-  render() {
-    return (
-      <label className="block">
-        <input
-          type="checkbox"
-          id={this.props.id}
-          name={this.props.name}
-          checked={this.props.checked}
-          disabled={this.props.disabled}
-          data-testid={this.props.dataTestId}
-          onChange={(ev) => this.props.onChange?.(ev)}
-        />
-        {this.props.label}
-      </label>
-    );
-  }
-}
+const CheckboxField: React.FC<CheckboxProps> = ({
+  id,
+  name,
+  label,
+  checked,
+  disabled,
+  dataTestId,
+  onChange,
+}) => (
+  <label className="block">
+    <input
+      type="checkbox"
+      id={id}
+      name={name}
+      checked={checked}
+      disabled={disabled}
+      data-testid={dataTestId}
+      onChange={(ev) => onChange?.(ev)}
+    />
+    {label}
+  </label>
+);
 
 export default CheckboxField;

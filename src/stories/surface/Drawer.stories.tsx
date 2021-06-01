@@ -1,40 +1,27 @@
 import { Story } from "@storybook/react/types-6-0";
-import React from "react";
+import React, { useState } from "react";
 import Drawer, { DrawerProps } from "../../components/surface/drawer/Drawer";
 
 export default {
-    title: "Surface/Drawer",
-    component: Drawer,
+  title: "Surface/Drawer",
+  component: Drawer,
 };
 
-class Toggler extends React.Component {
-    state = { open: false };
+const Toggler: React.FC<DrawerProps> = (props) => {
+  const [open, setOpen] = useState(false);
 
-    toggle() {
-        this.setState({ open: !this.state.open });
-    }
+  const toggle = () => setOpen(!open);
 
-    render() {
-        return (
-            <div>
-                <Drawer
-                    open={this.state.open}
-                    onClose={() => this.toggle()}
-                    {...this.props}
-                >
-                    Content
-                </Drawer>
+  return (
+    <div>
+      <Drawer {...props} open={open} onClose={toggle}>
+        Content
+      </Drawer>
 
-                <button onClick={() => this.toggle()}>Show Drawer</button>
-
-                <div
-                    style={{ height: "10rem", backgroundColor: "black" }}
-                    onClick={() => console.log("saaa")}
-                />
-            </div>
-        );
-    }
-}
+      <button onClick={toggle}>Show Drawer</button>
+    </div>
+  );
+};
 
 export const Default: Story<DrawerProps> = (args) => <Toggler {...args} />;
 Default.args = { background: "red", width: "5rem" };

@@ -1,60 +1,36 @@
-import React from "react";
+import { Story } from "@storybook/react/types-6-0";
+import React, { useState } from "react";
+import { DrawerProps } from "../../components/surface/drawer/Drawer";
 import Modal from "../../components/surface/modal/Modal";
 
 export default {
-    title: "Surface/Modal",
-    component: Modal,
+  title: "Surface/Modal",
+  component: Modal,
 };
 
-class Toggler extends React.Component {
-    state = { showDefault: false, showLarge: false };
+const Toggler: React.FC<DrawerProps> = () => {
+  const [show, setShow] = useState(false);
 
-    toggleDefault() {
-        this.setState({ showDefault: !this.state.showDefault });
-    }
+  const toggle = () => {
+    setShow(!show);
+  };
 
-    toggleLarge() {
-        this.setState({ showLarge: !this.state.showLarge });
-    }
+  return (
+    <div className="relative">
+      <Modal show={show} onDismiss={toggle}>
+        <div style={{ backgroundColor: "white" }}>Modal contents</div>
+      </Modal>
 
-    render() {
-        return (
-            <div className="relative">
-                <Modal
-                    show={this.state.showDefault}
-                    onDismiss={() => this.toggleDefault()}
-                >
-                    <div style={{ backgroundColor: "white" }}>
-                        Modal contents
-                    </div>
-                </Modal>
+      <button className="btn btn-primary" onClick={toggle}>
+        Show modal
+      </button>
+    </div>
+  );
+};
 
-                <Modal
-                    show={this.state.showLarge}
-                    width="45rem"
-                    onDismiss={() => this.toggleLarge()}
-                >
-                    <div style={{ backgroundColor: "white" }}>
-                        Modal contents
-                    </div>
-                </Modal>
+const Template: Story<DrawerProps> = (args) => <Toggler {...args} />;
 
-                <button
-                    className="btn btn-primary"
-                    onClick={() => this.toggleDefault()}
-                >
-                    Show default modal
-                </button>
+export const Default = Template.bind({});
 
-                <button
-                    className="btn btn-primary"
-                    onClick={() => this.toggleLarge()}
-                >
-                    Show large modal
-                </button>
-            </div>
-        );
-    }
-}
-
-export const Default = () => <Toggler />;
+export const CustomWidth = Template.bind({});
+CustomWidth.args = { width: "45rem" };

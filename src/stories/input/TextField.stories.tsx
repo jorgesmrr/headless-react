@@ -4,29 +4,27 @@ import { Story } from "@storybook/react/types-6-0";
 import Field from "../../components/input/field/Field";
 
 export default {
-    title: "Input/TextField",
-    component: TextField,
+  title: "Input/TextField",
+  component: TextField,
 };
 
 const Template: Story = (args) => {
-    const textField = useRef<TextField>(null);
-    const [enterCount, setEnterCount] = useState<number>(0);
+  const [text, setText] = useState("");
+  const textField = useRef<TextField>(null);
 
-    const focus = () => {
-        textField.current?.focus();
-    };
+  const focus = () => {
+    textField.current?.focus();
+  };
 
-    const onEnter = () => setEnterCount(enterCount + 1);
-
-    return (
-        <div>
-            <Field {...args}>
-                <TextField ref={textField} onEnter={onEnter} {...args} />
-            </Field>
-            <a onClick={focus}>Focus</a>
-            <p>Enter was pressed {enterCount} times.</p>
-        </div>
-    );
+  return (
+    <div>
+      <Field {...args}>
+        <TextField value={text} onChange={setText} ref={textField} {...args} />
+      </Field>
+      <p>Typed text: "{text}"</p>
+      <button onClick={focus}>Focus</button>
+    </div>
+  );
 };
 
 export const Default = Template.bind({});
@@ -40,14 +38,3 @@ Invalid.args = { ...Default.args, error: true };
 
 export const InvalidWithMessage = Template.bind({});
 InvalidWithMessage.args = { ...Default.args, error: "Required field" };
-
-export const Binding: React.FC = () => {
-    const [text, setText] = useState("");
-
-    return (
-        <Field label="Text">
-            <TextField value={text} onChange={setText} />
-            <p>Typed text: {text}</p>
-        </Field>
-    );
-};

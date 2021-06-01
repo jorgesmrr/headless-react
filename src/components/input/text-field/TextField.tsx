@@ -8,7 +8,6 @@ export interface TextFieldProps {
   placeholder?: string;
   disabled?: boolean;
   error?: boolean;
-  autoCleanErrors?: boolean;
   type?: string;
   className?: string;
   autoFocus?: boolean;
@@ -18,27 +17,22 @@ export interface TextFieldProps {
 }
 
 class TextField extends React.Component<TextFieldProps> {
-  input: React.RefObject<HTMLInputElement> | null = null;
+  inputRef: React.RefObject<HTMLInputElement> | null = null;
 
   static defaultProps = {
     type: "text",
-    autoCleanErrors: true,
   };
 
   constructor(props: TextFieldProps) {
     super(props);
-    this.input = React.createRef();
+    this.inputRef = React.createRef();
   }
 
   focus() {
-    this.input?.current?.focus();
+    this.inputRef?.current?.focus();
   }
 
   onChange(event: React.FormEvent<HTMLInputElement>) {
-    if (this.props.error && this.props.autoCleanErrors) {
-      // todo clear error
-    }
-
     this.props.onChange?.((event.target as HTMLInputElement).value);
   }
 
@@ -61,6 +55,7 @@ class TextField extends React.Component<TextFieldProps> {
 
     return (
       <input
+        ref={this.inputRef}
         id={this.props.id}
         name={this.props.name}
         type={this.props.type}
@@ -68,7 +63,6 @@ class TextField extends React.Component<TextFieldProps> {
         value={this.props.value}
         className={className}
         disabled={this.props.disabled}
-        ref={this.input}
         data-testid={this.props.dataTestId}
         onChange={(ev) => this.onChange(ev)}
         onKeyDown={(event) => this.onKeyDown(event)}
