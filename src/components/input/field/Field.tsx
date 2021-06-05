@@ -1,34 +1,32 @@
 import React from "react";
 
 export interface FieldProps {
-  for?: string;
   label?: string;
   hint?: string;
   error?: string;
+  dataTestId?: string;
 }
 
 const Field: React.FC<FieldProps> = ({
-  for: htmlFor,
   label,
   hint,
   error,
+  dataTestId,
   children,
 }) => (
-  <div className="field">
-    {label && (
-      <label htmlFor={htmlFor}>
-        {label}
+  <label className="field" data-testid={dataTestId}>
+    <span>
+      {label}
 
-        {hint && <br />}
+      {hint && <br />}
 
-        {hint && <small className="field-hint">{hint}</small>}
-      </label>
-    )}
+      {hint && <small className="field-hint">{hint}</small>}
+    </span>
 
     {children}
 
     {error && <small className="field-error">{error}</small>}
-  </div>
+  </label>
 );
 
 export default Field;

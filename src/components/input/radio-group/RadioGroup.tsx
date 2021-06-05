@@ -15,12 +15,14 @@ export interface RadioContextProps {
 
 export interface RadioGroupProps {
   name: string;
+  legend?: string;
   value?: any;
   onChange?: (value: any) => any;
 }
 
 const RadioGroup: React.FC<RadioGroupProps> = ({
   name,
+  legend,
   value,
   onChange,
   children,
@@ -35,7 +37,8 @@ const RadioGroup: React.FC<RadioGroupProps> = ({
   };
 
   return (
-    <div>
+    <fieldset>
+      {legend && <legend>{legend}</legend>}
       <RadioContext.Provider
         value={{
           selectedValue: value,
@@ -45,7 +48,7 @@ const RadioGroup: React.FC<RadioGroupProps> = ({
       >
         {children}
       </RadioContext.Provider>
-    </div>
+    </fieldset>
   );
 };
 

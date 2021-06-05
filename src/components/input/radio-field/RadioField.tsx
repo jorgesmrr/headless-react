@@ -23,6 +23,7 @@ const RadioField: React.FC<RadioProps> = ({
           type="radio"
           id={id}
           name={name}
+          value={value}
           checked={selectedValue === value}
           disabled={disabled}
           data-testid={dataTestId}

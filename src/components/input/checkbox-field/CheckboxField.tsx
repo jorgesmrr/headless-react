@@ -4,7 +4,7 @@ export interface CheckboxProps {
   id?: string;
   name?: string;
   label?: string;
-  checked: boolean;
+  checked?: boolean;
   disabled?: boolean;
   dataTestId?: string;
   onChange?: Function;

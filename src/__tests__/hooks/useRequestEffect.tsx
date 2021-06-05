@@ -16,7 +16,7 @@ const FakeComponent = ({ watcher }: { watcher: jest.Mock<any, any> }) => {
   return <div />;
 };
 
-test("should correctly update state", async () => {
+it("should correctly update state", async () => {
   const stateWatcher = jest.fn();
 
   render(<FakeComponent watcher={stateWatcher} />);
