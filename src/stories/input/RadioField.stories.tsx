@@ -7,15 +7,16 @@ export default {
   component: RadioField,
 };
 
-const BindindTest: React.FC = () => {
+const Template: React.FC = () => {
   const [selectedOption, setSelectedOption] = useState();
 
   return (
     <div>
       <RadioGroup
         name="binding"
+        legend="Field legend"
         value={selectedOption}
-        onChange={(option) => setSelectedOption(option)}
+        onChange={setSelectedOption}
       >
         <RadioField label="A" value={1} />
         <RadioField label="B" value={2} />
@@ -26,4 +27,4 @@ const BindindTest: React.FC = () => {
   );
 };
 
-export const Binding = () => <BindindTest />;
+export const Default = () => <Template />;
