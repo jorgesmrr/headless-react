@@ -1,14 +1,20 @@
 # headless-react
 
-A collection of unstyled React components packaged using the Bit platform.
+A collection of headless React components packaged using the [Bit](https://bit.dev) platform.
 
-I use them to share some code between my side projects. Feel free to use, but not in production.
+I use them only to share some code between my side-projects/experiments, so feel free to try them but do not use in serious projects.
 
-You can install each component individually, using NPM or Yarn. They are available at the following page: https://bit.dev/jorgemoreira/headless-react.
+## Usage
 
-## Live preview
+Each component can be installed separatedely, via NPM or Yarn.
 
-Visit the Storybook at Chromatic: https://www.chromatic.com/library?appId=60a4530cf4542b003b8d9490
+They are available at the following page: https://bit.dev/jorgemoreira/headless-react.
+
+To have the correct behavior and customization, import the following package right before your global styles: https://bit.dev/jorgemoreira/headless/styles
+
+## Live Storybook
+
+Visit the [Storybook at Chromatic](https://60a4530cf4542b003b8d9490-phbjyfdkwu.chromatic.com/).
 
 ## Local preview
 
