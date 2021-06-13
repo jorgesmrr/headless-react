@@ -1,49 +1,55 @@
+*,
+:after,
+:before {
+  box-sizing: border-box;
+}
+
 /* Drawer */
 
 .drawer__body {
-    top: 0;
-    bottom: 0;
-    left: 0;
-    position: fixed;
-    z-index: var(--drawer-z-index);
-    overflow: auto;
-    max-width: 70vw;
-    width: var(--drawer-width);
-    height: 100vh;
-    background: var(--drawer-background);
-    box-shadow: var(--drawer-shadow);
-    transform: translateX(-100%);
-    transition: transform var(--drawer-animation-duration)
-        var(--drawer-animation-curve);
+  top: 0;
+  bottom: 0;
+  left: 0;
+  position: fixed;
+  z-index: var(--drawer-z-index);
+  overflow: auto;
+  max-width: 70vw;
+  width: var(--drawer-width);
+  height: 100vh;
+  background: var(--drawer-background);
+  box-shadow: var(--drawer-shadow);
+  transform: translateX(-100%);
+  transition: transform var(--drawer-animation-duration)
+    var(--drawer-animation-curve);
 }
 
 .drawer--open .drawer__body {
-    transform: translateX(0);
+  transform: translateX(0);
 }
 
 .drawer__overlay {
-    position: fixed;
-    top: 0;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    background-color: black;
-    opacity: 0;
-    z-index: var(--drawer-overlay-z-index);
-    pointer-events: none;
-    transition: opacity var(--drawer-animation-duration)
-        var(--drawer-animation-curve);
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: black;
+  opacity: 0;
+  z-index: var(--drawer-overlay-z-index);
+  pointer-events: none;
+  transition: opacity var(--drawer-animation-duration)
+    var(--drawer-animation-curve);
 }
 
 .drawer--open .drawer__overlay {
-    pointer-events: auto;
-    opacity: var(--drawer-overlay-opacity);
+  pointer-events: auto;
+  opacity: var(--drawer-overlay-opacity);
 }
 
 /* Field */
 
 .field label {
-    display: block;
+  display: block;
 }
 
 /* Master Detail */
@@ -51,180 +57,216 @@
 .master-detail,
 .master-detail__master,
 .master-detail__detail,
-.master-detail__master > *,
+.master-detail__master,
+.master-detail__master__content,
+.master-detail__master__content > *,
 .master-detail__detail > * {
-    height: 100%;
+  height: 100%;
+}
+
+.master-detail__master {
+  z-index: var(--master-z-index);
+}
+
+.master-detail__master__content {
+  height: 100%;
+}
+
+.master-detail--closed .master-detail__master {
+  pointer-events: none;
 }
 
 @media (max-width: 1023px) {
-    .master-detail__master {
-        position: fixed;
-        top: 0;
-        left: 0;
-        height: 100vh;
-        transform: translateX(0);
-        opacity: 1;
-        transition: transform 250ms ease-in-out;
-    }
+  .master-detail__master {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    transform: translateX(0);
+    opacity: 1;
+    transition: transform var(--animation-duration) ease-in-out;
+  }
 
-    .master-detail--closed .master-detail__master {
-        opacity: 0;
-        transform: translateX(-100%);
-        transition: transform 250ms ease-in-out, opacity 250ms ease-in-out 250ms;
-    }
+  .master-detail__master,
+  .master-detail__master__content {
+    width: min(80vw, var(--master-width));
+  }
 
-    .master-detail__overlay {
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100vw;
-        height: 100vh;
-        background-color: black;
-        opacity: 0.2;
-        transition: opacity 250ms ease-in-out;
-    }
+  .master-detail--closed .master-detail__master {
+    opacity: 0;
+    transform: translateX(-100%);
+    transition: transform var(--animation-duration) ease-in-out,
+      opacity var(--animation-duration) ease-in-out var(--animation-duration);
+  }
 
-    .master-detail--closed .master-detail__overlay {
-        pointer-events: none;
-        opacity: 0;
-    }
+  .master-detail__overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: black;
+    opacity: 0.2;
+    transition: opacity var(--animation-duration) ease-in-out;
+    z-index: var(--overlay-z-index);
+  }
+
+  .master-detail--closed .master-detail__overlay {
+    pointer-events: none;
+    opacity: 0;
+  }
 }
 
 @media (min-width: 1024px) {
-    .master-detail {
-        display: flex;
-        align-items: stretch;
-    }
+  .master-detail {
+    display: flex;
+    align-items: stretch;
+  }
 
-    .master-detail__detail {
-        flex: 1 1 auto;
-    }
+  .master-detail__master {
+    flex: 0 0 var(--master-width);
+    max-width: var(--master-width);
+    overflow-x: hidden;
+    transition: max-width var(--animation-duration) ease-in-out;
+  }
+
+  .master-detail__master__content {
+    width: var(--master-width);
+  }
+
+  .master-detail--closed .master-detail__master {
+    max-width: 0;
+  }
+
+  .master-detail__detail {
+    flex: 1 1 auto;
+  }
 }
 
 /* Modal */
 
 .modal {
-    position: fixed;
-    display: none;
-    top: 0;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    z-index: 100;
-    opacity: 0;
-    transition: opacity 3s ease-in-out;
-    background-color: #00000044;
+  position: fixed;
+  display: none;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 100;
+  opacity: 0;
+  transition: opacity 3s ease-in-out;
+  background-color: #00000044;
 }
 
 .modal__content {
-    position: relative;
-    margin: 2rem;
-    height: calc(100vh - 4rem);
-    opacity: 0;
+  position: relative;
+  margin: 2rem;
+  height: calc(100vh - 4rem);
+  opacity: 0;
 }
 
 .modal--open {
-    display: block;
-    animation: showModal 0.4s forwards;
+  display: block;
+  animation: showModal 0.4s forwards;
 }
 
 .modal--open .modal__content {
-    animation: showModalBody 0.4s forwards;
+  animation: showModalBody 0.4s forwards;
 }
 
 @media (min-width: 1024px) {
-    .modal__content {
-        width: var(--modal-width);
-        margin-left: auto;
-        margin-right: auto;
-    }
+  .modal__content {
+    width: var(--modal-width);
+    margin-left: auto;
+    margin-right: auto;
+  }
 }
 
 @keyframes showModal {
-    from {
-        opacity: 0;
-    }
-    to {
-        opacity: 1;
-    }
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
 }
 
 @keyframes showModalBody {
-    from {
-        top: -19rem;
-        opacity: 0;
-    }
-    to {
-        top: 0;
-        opacity: 1;
-    }
+  from {
+    top: -19rem;
+    opacity: 0;
+  }
+  to {
+    top: 0;
+    opacity: 1;
+  }
 }
 
 /* Popover */
 
 .popover-wrapper {
-    position: fixed;
-    z-index: 39;
-    right: 1rem;
+  position: fixed;
+  z-index: 39;
+  right: 1rem;
 }
 
 .popover {
-    overflow: auto;
-    display: inline-block;
-    white-space: nowrap;
-    max-height: 100%;
-    max-width: 100%;
+  overflow: auto;
+  display: inline-block;
+  white-space: nowrap;
+  max-height: 100%;
+  max-width: 100%;
 }
 
 /* Spinner */
 .spinner {
-    padding: 1rem;
+  padding: 1rem;
 }
 
 .spinner--small {
-    padding: 0.5rem;
+  padding: 0.5rem;
 }
 
 .spinner--inline {
-    display: flex;
-    align-items: center;
-    padding: 0;
+  display: flex;
+  align-items: center;
+  padding: 0;
 }
 
 .spinner__spin {
-    display: block;
-    margin: 0 auto;
-    border-radius: 100%;
-    animation: spinner-spin 0.8s linear infinite;
-    border: 0.25rem solid var(--spinner-secondary-color);
-    border-top: 0.25rem solid var(--spinner-primary-color);
-    width: 2.5rem;
-    height: 2.5rem;
-    flex: 0 0 2rem;
+  display: block;
+  margin: 0 auto;
+  border-radius: 100%;
+  animation: spinner-spin 0.8s linear infinite;
+  border: 0.25rem solid var(--spinner-secondary-color);
+  border-top: 0.25rem solid var(--spinner-primary-color);
+  width: 2.5rem;
+  height: 2.5rem;
+  flex: 0 0 2rem;
 }
 
 .spinner--small .spinner__spin {
-    border-width: 0.125rem;
-    width: 1.5rem;
-    height: 1.5rem;
-    flex: 0 0 1.5rem;
+  border-width: 0.125rem;
+  width: 1.5rem;
+  height: 1.5rem;
+  flex: 0 0 1.5rem;
 }
 
 .spinner--inline > .spinner__spin {
-    display: inline-block;
-    margin-right: 0.25rem;
-    margin-left: 0;
-    border-width: 0.125rem;
-    width: 1em;
-    height: 1em;
-    flex: 0 0 1em;
+  display: inline-block;
+  margin-right: 0.25rem;
+  margin-left: 0;
+  border-width: 0.125rem;
+  width: 1em;
+  height: 1em;
+  flex: 0 0 1em;
 }
 
 @keyframes spinner-spin {
-    0% {
-        transform: rotate(0deg);
-    }
-    100% {
-        transform: rotate(360deg);
-    }
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
 }
