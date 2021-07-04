@@ -29,7 +29,7 @@ export const useRequestEffect: <T>(
 
   useEffect(() => {
     fetch();
-  }, dependencies);
+  }, [endpoint, ...dependencies]);
 
   return { isLoading, error, data };
 };
